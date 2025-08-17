@@ -11,5 +11,22 @@ Projeto para desenvolver com as boas práticas de mercado de trabalho em .NET.
 
 > [!NOTE]
 1 Sprint 01/08 até 31/08
-> - [ ] 2 Semana - 9/08 até 15/08 - (Em Andamento)
+
+> Começam no sábado e terminam na sexta. 
+> - [x] 3 Semana - 16/08 até 22/08 - (Em Andamento)
+> - [x] 2 Semana - 9/08 até 15/08
 > - [x] 1 Semana - 2/08 até 08/08 :tada:
+
+npm i -g create-next-app
+
+> npx create-next-app@13.5.5
+<br>
+
+> typescript - sim
+<br>
+
+> o restante tudo sim - sim
+<br>
+
+> import - não
+<br>
