@@ -1,4 +1,4 @@
-namespace KGBibleProject
+namespace Api
 {
     public class WeatherForecast
     {

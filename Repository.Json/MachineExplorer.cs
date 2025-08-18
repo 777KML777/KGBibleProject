@@ -7,9 +7,9 @@ public static class MachineExplorer
         string file = "";
 
         if (OperatingSystem.IsMacOS())
-            file = @"/" + nameRepository + "Data.json";
+            file = @"/" + nameRepository + ".json";
         else if (OperatingSystem.IsWindows())
-            file = @"\" + nameRepository + "Data.json" ;
+            file = @"\" + nameRepository + ".json" ;
 
         // var x = Environment.SystemDirectory;
         // var x2 = Environment.CommandLine;

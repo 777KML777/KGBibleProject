@@ -2,15 +2,15 @@ using Application.Dtos;
 using Application.Services;
 using Microsoft.AspNetCore.Mvc;
 
-namespace KGBibleProject.Controllers
+namespace Api.Controllers
 {
     [ApiController]
     [Route("[controller]")]
-    public class PersonController : ControllerBase
+    public class CityController : ControllerBase
     {
 
         private readonly ICityServices _services;
-        public PersonController()
+        public CityController()
         {
             _services = new CityServices();
         }
