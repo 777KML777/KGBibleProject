@@ -4,7 +4,7 @@ using Domain.Entities.City;
 using JsonFile.Repository;
 using JsonFile.Repository.CityRepository;
 
-namespace Application.Services;
+namespace Application.Services.ServicesCity;
 
 public class CityServices : ICityServices
 {
