@@ -1,5 +1,5 @@
 using Application.Dtos;
-using Application.Services;
+using Application.Services.ServicesPerson;
 using Microsoft.AspNetCore.Mvc;
 
 namespace Api.Controllers
@@ -9,10 +9,10 @@ namespace Api.Controllers
     public class PersonController : ControllerBase
     {
 
-        private readonly ICityServices _services;
+        private readonly IPersonServices _services;
         public PersonController()
         {
-            _services = new CityServices();
+            _services = new PersonServices();
         }
 
         // [HttpGet(Name = "GetWeatherForecast")]
@@ -22,7 +22,7 @@ namespace Api.Controllers
         // }
 
         [HttpGet]
-        public List<CityDto> Get() =>
+        public List<PersonDto> Get() =>
             _services.Read(); 
     }
 }
