@@ -3,6 +3,7 @@ using Application.Models;
 using Domain.Entities.City;
 using JsonFile.Repository;
 using JsonFile.Repository.CityRepository;
+using Repository.Json;
 
 namespace Application.Services.ServicesCity;
 
@@ -15,7 +16,10 @@ public class CityServices : ICityServices
     }
     public bool Create(CityInputModel obj, bool include = false)
     {
-        throw new NotImplementedException();
+        CityEntity cityEntity = MappingInputModelToEntity(obj);
+        CityEntityData cityEntityData = MappingEntityToEntityData(cityEntity);
+        _repository.Create(cityEntityData);
+        return true;
     }
 
     public bool Delete(CityInputModel obj, bool include = false)
@@ -40,12 +44,17 @@ public class CityServices : ICityServices
 
     public CityEntityData MappingEntityToEntityData(CityEntity obj)
     {
-        throw new NotImplementedException();
+        CityEntityData cityEntityData = new CityEntityData();
+        cityEntityData.Nome = obj.Nome;
+        cityEntityData.Descricao = obj.Descricao;
+
+        return cityEntityData;
     }
 
     public CityEntity MappingInputModelToEntity(CityInputModel obj)
     {
-        throw new NotImplementedException();
+        CityEntity cityEntity = new CityEntity(obj.Nome, obj.Descricao);
+        return cityEntity;
     }
 
     public List<CityEntity> MappingListEntityDataToListEntity(List<CityEntityData> obj)

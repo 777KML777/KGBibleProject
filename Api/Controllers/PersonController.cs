@@ -24,5 +24,8 @@ namespace Api.Controllers
         [HttpGet]
         public List<PersonDto> Get() =>
             _services.Read(); 
+
+
+        
     }
 }

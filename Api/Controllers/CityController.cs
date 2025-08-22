@@ -1,4 +1,5 @@
 using Application.Dtos;
+using Application.Models;
 using Application.Services.ServicesCity;
 using Microsoft.AspNetCore.Mvc;
 
@@ -23,6 +24,10 @@ namespace Api.Controllers
 
         [HttpGet]
         public List<CityDto> Get() =>
-            _services.Read(); 
+            _services.Read();
+
+        [HttpPost]
+        public void Create(CityInputModel cityInputModel) =>
+            _services.Create(cityInputModel);
     }
 }

@@ -75,7 +75,7 @@ public class PersonServices : IPersonServices
         (
             MappingListEntityDataToListEntity
             (
-                _repository.ReadAll<PersonEntityData>().ToList()
+                 _repository.ReadAll<PersonEntityData>().ToList()
             )
         );
         return y;
