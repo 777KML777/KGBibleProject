@@ -29,5 +29,9 @@ namespace Api.Controllers
         [HttpPost]
         public void Create(CityInputModel cityInputModel) =>
             _services.Create(cityInputModel);
+
+        [HttpGet]
+        public CityDto GetById(int id) =>
+            _services.GetById(id);
     }
 }

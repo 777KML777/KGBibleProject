@@ -3,7 +3,6 @@ using Application.Models;
 using Domain.Entities.City;
 using JsonFile.Repository;
 using JsonFile.Repository.CityRepository;
-using Repository.Json;
 
 namespace Application.Services.ServicesCity;
 
@@ -29,17 +28,27 @@ public class CityServices : ICityServices
 
     public CityDto GetById(int id, bool include = false)
     {
-        throw new NotImplementedException();
+        CityEntityData cityEntityData = new CityEntityData();
+        var cidade = _repository.GetById<CityEntityData>(cityEntityData.Id);
+
+        CityEntity cityEntity = MappingEntityDataToEntity(cidade);
+
+        CityDto cityDto = MappingEntityToDto(cityEntity);
+
+        return cityDto;
+
     }
 
     public CityEntity MappingEntityDataToEntity(CityEntityData obj)
     {
-        throw new NotImplementedException();
+        CityEntity cityEntity = new CityEntity(obj.Nome, obj.Descricao);
+        return cityEntity;
     }
 
     public CityDto MappingEntityToDto(CityEntity obj)
     {
-        throw new NotImplementedException();
+        CityDto cityDto = new CityDto(obj.Nome, obj.Descricao);
+        return cityDto;
     }
 
     public CityEntityData MappingEntityToEntityData(CityEntity obj)
