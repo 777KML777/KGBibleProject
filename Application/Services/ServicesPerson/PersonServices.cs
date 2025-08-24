@@ -15,7 +15,11 @@ public class PersonServices : IPersonServices
     }
     public bool Create(PersonInputModel obj, bool include = false)
     {
-        throw new NotImplementedException();
+        PersonEntity personEntity = MappingInputModelToEntity(obj);
+        PersonEntityData personEntityData = MappingEntityToEntityData(personEntity);
+
+        _repository.Create(personEntityData);
+        return true;
     }
 
     public bool Delete(PersonInputModel obj, bool include = false)
@@ -40,12 +44,19 @@ public class PersonServices : IPersonServices
 
     public PersonEntityData MappingEntityToEntityData(PersonEntity obj)
     {
-        throw new NotImplementedException();
+        PersonEntityData personEntityData = new PersonEntityData();
+
+        personEntityData.Nome = obj.Nome;
+        personEntityData.Descricao = obj.Descricao;
+        personEntityData.Sexo = obj.Sexo;
+
+        return personEntityData;
     }
 
     public PersonEntity MappingInputModelToEntity(PersonInputModel obj)
     {
-        throw new NotImplementedException();
+        PersonEntity personEntity = new PersonEntity(obj.Nome, obj.Descricao, obj.Sexo);
+        return personEntity;
     }
 
     public List<PersonEntity> MappingListEntityDataToListEntity(List<PersonEntityData> obj)

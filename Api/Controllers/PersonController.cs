@@ -1,4 +1,5 @@
 using Application.Dtos;
+using Application.Models;
 using Application.Services.ServicesPerson;
 using Microsoft.AspNetCore.Mvc;
 
@@ -23,9 +24,12 @@ namespace Api.Controllers
 
         [HttpGet]
         public List<PersonDto> Get() =>
-            _services.Read(); 
+            _services.Read();
 
-
-        
+        [HttpPost]
+        public void Create(PersonInputModel personInputModel)
+        {
+            _services.Create(personInputModel);
+        }
     }
 }
