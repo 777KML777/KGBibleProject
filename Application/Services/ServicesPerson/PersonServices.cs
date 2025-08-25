@@ -29,17 +29,23 @@ public class PersonServices : IPersonServices
 
     public PersonDto GetById(int id, bool include = false)
     {
-        throw new NotImplementedException();
+        var pessoa = _repository.GetById<PersonEntityData>(id);
+        PersonEntity personEntity = MappingEntityDataToEntity(pessoa);
+        PersonDto personDto = MappingEntityToDto(personEntity);
+
+        return personDto;
     }
 
     public PersonEntity MappingEntityDataToEntity(PersonEntityData obj)
     {
-        throw new NotImplementedException();
+        PersonEntity personEntity = new PersonEntity(obj.Nome, obj.Descricao, obj.Sexo);
+        return personEntity;
     }
 
     public PersonDto MappingEntityToDto(PersonEntity obj)
     {
-        throw new NotImplementedException();
+        PersonDto personDto = new PersonDto(obj.Nome, obj.Descricao, obj.Sexo);
+        return personDto;
     }
 
     public PersonEntityData MappingEntityToEntityData(PersonEntity obj)

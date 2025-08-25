@@ -31,5 +31,10 @@ namespace Api.Controllers
         {
             _services.Create(personInputModel);
         }
+
+        [HttpGet("{id}")]
+        public PersonDto GetById(int id) =>
+            _services.GetById(id);
+        
     }
 }

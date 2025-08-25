@@ -28,8 +28,7 @@ public class CityServices : ICityServices
 
     public CityDto GetById(int id, bool include = false)
     {
-        CityEntityData cityEntityData = new CityEntityData();
-        var cidade = _repository.GetById<CityEntityData>(cityEntityData.Id);
+        var cidade = _repository.GetById<CityEntityData>(id);
 
         CityEntity cityEntity = MappingEntityDataToEntity(cidade);
 
@@ -43,12 +42,14 @@ public class CityServices : ICityServices
     {
         CityEntity cityEntity = new CityEntity(obj.Nome, obj.Descricao);
         return cityEntity;
+
     }
 
     public CityDto MappingEntityToDto(CityEntity obj)
     {
         CityDto cityDto = new CityDto(obj.Nome, obj.Descricao);
         return cityDto;
+
     }
 
     public CityEntityData MappingEntityToEntityData(CityEntity obj)

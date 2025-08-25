@@ -30,7 +30,7 @@ namespace Api.Controllers
         public void Create(CityInputModel cityInputModel) =>
             _services.Create(cityInputModel);
 
-        [HttpGet]
+        [HttpGet("{id}")]
         public CityDto GetById(int id) =>
             _services.GetById(id);
     }
