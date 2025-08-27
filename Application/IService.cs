@@ -39,7 +39,7 @@ public interface IService<TInputModel, TDto, TEntity, TEntityData>
     
     bool Create(TInputModel obj, bool include = false);
     List<TDto> Read(bool include = false);
-    bool Update(TInputModel obj, bool include = false);
+    bool Update(int id, TInputModel obj, bool include = false);
     bool Delete(TInputModel obj, bool include = false);
     TDto GetById(int id, bool include = false);
 }

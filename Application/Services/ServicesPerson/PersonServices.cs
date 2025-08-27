@@ -98,7 +98,7 @@ public class PersonServices : IPersonServices
         return y;
     }
 
-    public bool Update(PersonInputModel obj, bool include = false)
+    public bool Update(int id, PersonInputModel obj, bool include = false)
     {
         throw new NotImplementedException();
     }

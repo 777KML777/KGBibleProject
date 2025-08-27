@@ -33,5 +33,10 @@ namespace Api.Controllers
         [HttpGet("{id}")]
         public CityDto GetById(int id) =>
             _services.GetById(id);
+
+        [HttpPut("{id}")]
+        public void Update(int id, CityInputModel cityInputModel) =>
+            _services.Update(id, cityInputModel);
+        
     }
 }

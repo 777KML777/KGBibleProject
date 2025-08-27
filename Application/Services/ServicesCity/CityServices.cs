@@ -100,8 +100,19 @@ public class CityServices : ICityServices
         return y;
     }
 
-    public bool Update(CityInputModel obj, bool include = false)
+    public bool Update(int id, CityInputModel obj, bool include = false)
     {
-        throw new NotImplementedException();
+        var cidade = _repository.GetById<CityEntityData>(id);
+
+        CityEntity cityEntity = MappingInputModelToEntity(obj);
+        CityEntityData cityEntityData = MappingEntityToEntityData(cityEntity);
+
+        cityEntityData.Id = cidade.Id;
+        cityEntityData.Nome = obj.Nome;
+        cityEntityData.Descricao = obj.Descricao;
+
+        
+        _repository.Update<CityEntityData>(cityEntityData);
+        return true;
     }
 }
