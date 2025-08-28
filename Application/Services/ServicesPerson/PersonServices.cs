@@ -100,6 +100,17 @@ public class PersonServices : IPersonServices
 
     public bool Update(int id, PersonInputModel obj, bool include = false)
     {
-        throw new NotImplementedException();
+        var pessoa = _repository.GetById<PersonEntityData>(id);
+        PersonEntity personEntity = MappingInputModelToEntity(obj);
+        PersonEntityData personEntityData = MappingEntityToEntityData(personEntity);
+
+        personEntityData.Id = pessoa.Id;
+        personEntityData.Nome = obj.Nome;
+        personEntityData.Descricao = obj.Descricao;
+        personEntityData.Sexo = obj.Sexo;
+
+        _repository.Update<PersonEntityData>(personEntityData);
+
+        return true;
     }
 }

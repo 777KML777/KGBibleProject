@@ -35,6 +35,10 @@ namespace Api.Controllers
         [HttpGet("{id}")]
         public PersonDto GetById(int id) =>
             _services.GetById(id);
+
+        [HttpPut("{id}")]
+        public void Update(int id, PersonInputModel personInputModel) =>
+            _services.Update(id, personInputModel);
         
     }
 }
