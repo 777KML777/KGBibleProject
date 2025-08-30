@@ -105,9 +105,6 @@ public class PersonServices : IPersonServices
         PersonEntityData personEntityData = MappingEntityToEntityData(personEntity);
 
         personEntityData.Id = pessoa.Id;
-        personEntityData.Nome = obj.Nome;
-        personEntityData.Descricao = obj.Descricao;
-        personEntityData.Sexo = obj.Sexo;
 
         _repository.Update<PersonEntityData>(personEntityData);
 

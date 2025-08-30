@@ -27,11 +27,9 @@ namespace Api.Controllers
             _services.Read();
 
         [HttpPost]
-        public void Create(PersonInputModel personInputModel)
-        {
+        public void Create(PersonInputModel personInputModel)=>
             _services.Create(personInputModel);
-        }
-
+        
         [HttpGet("{id}")]
         public PersonDto GetById(int id) =>
             _services.GetById(id);

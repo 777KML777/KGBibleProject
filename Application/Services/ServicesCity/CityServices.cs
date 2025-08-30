@@ -108,11 +108,8 @@ public class CityServices : ICityServices
         CityEntityData cityEntityData = MappingEntityToEntityData(cityEntity);
 
         cityEntityData.Id = cidade.Id;
-        cityEntityData.Nome = obj.Nome;
-        cityEntityData.Descricao = obj.Descricao;
-
         
-        _repository.Update<CityEntityData>(cityEntityData);
+        _repository.Update(cityEntityData);
         return true;
     }
 }
