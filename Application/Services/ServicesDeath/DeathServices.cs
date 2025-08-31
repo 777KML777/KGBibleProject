@@ -51,12 +51,19 @@ public class DeathServices : IDeathServices
 
     public List<DeathEntity> MappingListEntityDataToListEntity(List<DeathEntityData> obj)
     {
-        throw new NotImplementedException();
+        List<DeathEntity> deathEntities = new List<DeathEntity>();
+
+        obj.ForEach(item => deathEntities.Add(new DeathEntity(item.IdPessoa, item.AnosVicencia, item.Causa)));
+
+        return deathEntities;
     }
 
     public List<DeathDto> MappingListEntityToListDto(List<DeathEntity> obj)
     {
-        throw new NotImplementedException();
+        List<DeathDto> deathDto = new List<DeathDto>();
+        obj.ForEach(item => deathDto.Add(new DeathDto(item.IdPessoa, item.AnosVicencia, item.Causa)));
+
+        return deathDto;
     }
 
     public List<DeathEntityData> MappingListEntityToListEntityData(List<DeathEntity> obj)
@@ -66,7 +73,13 @@ public class DeathServices : IDeathServices
 
     public List<DeathDto> Read(bool include = false)
     {
-        throw new NotImplementedException();
+        var death = _repository.ReadAll<DeathEntityData>().ToList();
+
+        List<DeathEntity> deathEntity = MappingListEntityDataToListEntity(death);
+
+        List<DeathDto> deathDto = MappingListEntityToListDto(deathEntity);
+
+        return deathDto;
     }
 
     public bool Update(int id, DeathInputModel obj, bool include = false)

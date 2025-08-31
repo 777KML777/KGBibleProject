@@ -21,6 +21,10 @@ namespace Api.Controllers
         // {
         //     return null;
         // }
+
+        [HttpGet]
+        public List<DeathDto> Get() =>
+            _services.Read();
     }
 }       
 
