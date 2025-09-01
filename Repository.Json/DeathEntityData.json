@@ -40,5 +40,11 @@
         "IdPessoa": 14,
         "AnosVicencia": 541,
         "Causa": "Teste541"
+    },
+    {
+        "Id": 9,
+        "IdPessoa": 9,
+        "AnosVicencia": 136,
+        "Causa": "Teste API"
     }
 ]

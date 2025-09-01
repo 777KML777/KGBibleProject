@@ -16,7 +16,12 @@ public class DeathServices : IDeathServices
     }
     public bool Create(DeathInputModel obj, bool include = false)
     {
-        throw new NotImplementedException();
+        DeathEntity deathEntity = MappingInputModelToEntity(obj);
+        DeathEntityData deathEntityData = MappingEntityToEntityData(deathEntity);
+
+        _repository.Create(deathEntityData);
+
+        return true;
     }
 
     public bool Delete(DeathInputModel obj, bool include = false)
@@ -41,12 +46,19 @@ public class DeathServices : IDeathServices
 
     public DeathEntityData MappingEntityToEntityData(DeathEntity obj)
     {
-        throw new NotImplementedException();
+        DeathEntityData deathEntityData = new DeathEntityData();
+
+        deathEntityData.IdPessoa = obj.IdPessoa;
+        deathEntityData.AnosVicencia = obj.AnosVicencia;
+        deathEntityData.Causa = obj.Causa;
+
+        return deathEntityData;
     }
 
     public DeathEntity MappingInputModelToEntity(DeathInputModel obj)
     {
-        throw new NotImplementedException();
+        DeathEntity deathEntity = new DeathEntity(obj.IdPessoa, obj.AnosVicencia, obj.Causa);
+        return deathEntity;
     }
 
     public List<DeathEntity> MappingListEntityDataToListEntity(List<DeathEntityData> obj)

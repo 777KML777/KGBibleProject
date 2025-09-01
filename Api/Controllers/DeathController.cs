@@ -25,6 +25,11 @@ namespace Api.Controllers
         [HttpGet]
         public List<DeathDto> Get() =>
             _services.Read();
+
+        [HttpPost]
+        public void Create(DeathInputModel deathInputModel) =>
+            _services.Create(deathInputModel);
+
     }
 }       
 
