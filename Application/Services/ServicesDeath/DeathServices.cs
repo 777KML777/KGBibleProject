@@ -1,6 +1,7 @@
 using Application.Dtos;
 using Application.Models;
 using Domain.Entities.Death;
+using Domain.Entities.Person;
 using JsonFile.Repository;
 using JsonFile.Repository.DeathRepository;
 using JsonFile.Repositoy;
@@ -31,17 +32,26 @@ public class DeathServices : IDeathServices
 
     public DeathDto GetById(int id, bool include = false)
     {
-        throw new NotImplementedException();
+        var deathData = _repository.GetById<DeathEntityData>(id);
+        DeathEntity deathEntity = MappingEntityDataToEntity(deathData);
+        DeathDto deathDto = MappingEntityToDto(deathEntity);
+
+        var personData = _repository.GetById<PersonEntityData>(deathData.IdPessoa);
+
+        return deathDto;
+
     }
 
     public DeathEntity MappingEntityDataToEntity(DeathEntityData obj)
-    {   
-        throw new NotImplementedException();
+    {
+        DeathEntity deathEntity = new DeathEntity(obj.IdPessoa, obj.AnosVicencia, obj.Causa);
+        return deathEntity;
     }
 
     public DeathDto MappingEntityToDto(DeathEntity obj)
     {
-        throw new NotImplementedException();
+        DeathDto deathDto = new DeathDto(obj.IdPessoa, obj.AnosVicencia, obj.Causa);
+        return deathDto;
     }
 
     public DeathEntityData MappingEntityToEntityData(DeathEntity obj)
