@@ -1,5 +1,7 @@
+using System.Data;
 using Application.Dtos;
 using Application.Models;
+using Application.Services.ServicesPerson;
 using Domain.Entities.Death;
 using Domain.Entities.Person;
 using JsonFile.Repository;
@@ -34,10 +36,15 @@ public class DeathServices : IDeathServices
     {
         var deathData = _repository.GetById<DeathEntityData>(id);
         DeathEntity deathEntity = MappingEntityDataToEntity(deathData);
-        DeathDto deathDto = MappingEntityToDto(deathEntity);
 
         var personData = _repository.GetById<PersonEntityData>(deathData.IdPessoa);
 
+        PersonServices personServices = new PersonServices();
+        var personEntity = personServices.MappingEntityDataToEntity(personData);
+        var personDto = personServices.MappingEntityToDto(personEntity);
+
+        DeathDto deathDto = new DeathDto(deathEntity.IdPessoa, deathEntity.AnosVicencia, deathEntity.Causa, personDto.Nome);
+       
         return deathDto;
 
     }
@@ -50,8 +57,7 @@ public class DeathServices : IDeathServices
 
     public DeathDto MappingEntityToDto(DeathEntity obj)
     {
-        DeathDto deathDto = new DeathDto(obj.IdPessoa, obj.AnosVicencia, obj.Causa);
-        return deathDto;
+        throw new NotImplementedException();
     }
 
     public DeathEntityData MappingEntityToEntityData(DeathEntity obj)
@@ -82,10 +88,7 @@ public class DeathServices : IDeathServices
 
     public List<DeathDto> MappingListEntityToListDto(List<DeathEntity> obj)
     {
-        List<DeathDto> deathDto = new List<DeathDto>();
-        obj.ForEach(item => deathDto.Add(new DeathDto(item.IdPessoa, item.AnosVicencia, item.Causa)));
-
-        return deathDto;
+        throw new NotImplementedException();
     }
 
     public List<DeathEntityData> MappingListEntityToListEntityData(List<DeathEntity> obj)
@@ -96,10 +99,17 @@ public class DeathServices : IDeathServices
     public List<DeathDto> Read(bool include = false)
     {
         var death = _repository.ReadAll<DeathEntityData>().ToList();
-
         List<DeathEntity> deathEntity = MappingListEntityDataToListEntity(death);
 
-        List<DeathDto> deathDto = MappingListEntityToListDto(deathEntity);
+
+        PersonServices personServices = new PersonServices();
+        var personData = _repository.ReadAll<PersonEntityData>().ToList();
+
+        var personEntity = personServices.MappingListEntityDataToListEntity(personData);
+        var personDto = personServices.MappingListEntityToListDto(personEntity);
+
+        deathDto.ForEach(item => deathDto.Add(new DeathDto(item.IdPessoa, item.AnosVivencia, item.Causa, person.Nome)));
+        
 
         return deathDto;
     }

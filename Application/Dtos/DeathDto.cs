@@ -1,3 +1,3 @@
 namespace Application.Dtos;
 
-public record class DeathDto(int idPessoa, int anosVivencia, string causa);
+public record class DeathDto(int IdPessoa, int AnosVivencia, string Causa, string Nome);
