@@ -43,7 +43,7 @@ public class DeathServices : IDeathServices
         var personEntity = personServices.MappingEntityDataToEntity(personData);
         var personDto = personServices.MappingEntityToDto(personEntity);
 
-        DeathDto deathDto = new DeathDto(deathEntity.IdPessoa, deathEntity.AnosVicencia, deathEntity.Causa, personDto.Nome);
+        DeathDto deathDto = new DeathDto(deathEntity.IdPessoa, deathEntity.AnosVivencia, deathEntity.Causa, personDto.Nome);
        
         return deathDto;
 
@@ -51,7 +51,7 @@ public class DeathServices : IDeathServices
 
     public DeathEntity MappingEntityDataToEntity(DeathEntityData obj)
     {
-        DeathEntity deathEntity = new DeathEntity(obj.IdPessoa, obj.AnosVicencia, obj.Causa);
+        DeathEntity deathEntity = new DeathEntity(obj.IdPessoa, obj.AnosVivencia, obj.Causa);
         return deathEntity;
     }
 
@@ -65,7 +65,7 @@ public class DeathServices : IDeathServices
         DeathEntityData deathEntityData = new DeathEntityData();
 
         deathEntityData.IdPessoa = obj.IdPessoa;
-        deathEntityData.AnosVicencia = obj.AnosVicencia;
+        deathEntityData.AnosVivencia = obj.AnosVivencia;
         deathEntityData.Causa = obj.Causa;
 
         return deathEntityData;
@@ -73,7 +73,7 @@ public class DeathServices : IDeathServices
 
     public DeathEntity MappingInputModelToEntity(DeathInputModel obj)
     {
-        DeathEntity deathEntity = new DeathEntity(obj.IdPessoa, obj.AnosVicencia, obj.Causa);
+        DeathEntity deathEntity = new DeathEntity(obj.IdPessoa, obj.AnosVivencia, obj.Causa);
         return deathEntity;
     }
 
@@ -81,7 +81,7 @@ public class DeathServices : IDeathServices
     {
         List<DeathEntity> deathEntities = new List<DeathEntity>();
 
-        obj.ForEach(item => deathEntities.Add(new DeathEntity(item.IdPessoa, item.AnosVicencia, item.Causa)));
+        obj.ForEach(item => deathEntities.Add(new DeathEntity(item.IdPessoa, item.AnosVivencia, item.Causa)));
 
         return deathEntities;
     }
@@ -106,9 +106,12 @@ public class DeathServices : IDeathServices
         var personData = _repository.ReadAll<PersonEntityData>().ToList();
 
         var personEntity = personServices.MappingListEntityDataToListEntity(personData);
-        var personDto = personServices.MappingListEntityToListDto(personEntity);
+        
+        var personDto = personServices.MappingListEntityToListDto(personEntity);        
 
-        deathDto.ForEach(item => deathDto.Add(new DeathDto(item.IdPessoa, item.AnosVivencia, item.Causa, person.Nome)));
+        List<DeathDto> deathDto = new List<DeathDto>();
+        //Primeiramente retornar os obj do banco 
+        deathEntity?.ForEach(item => deathDto.Add(new DeathDto(item.IdPessoa, item.AnosVivencia, item.Causa, personEntity.FirstOrDefault(x => x.Id == item.IdPessoa )?.Nome)));
         
 
         return deathDto;
