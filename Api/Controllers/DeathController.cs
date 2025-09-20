@@ -33,6 +33,10 @@ namespace Api.Controllers
         [HttpGet("{id}")]
         public DeathDto GetById(int id) =>
             _services.GetById(id);
+
+        [HttpPut("{id}")]
+        public void Update(int id, DeathInputModel deathInputModel) =>
+            _services.Update(id, deathInputModel);
     }
 }       
 

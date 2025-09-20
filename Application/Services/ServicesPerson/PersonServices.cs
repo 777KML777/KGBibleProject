@@ -72,7 +72,7 @@ public class PersonServices : IPersonServices
         {
             var person = new PersonEntity(item.Nome, item.Descricao, item.Sexo)
             {
-                Id = item.Id   // 👈 agora o Id vai junto!
+                Id = item.Id   // agora o Id vai junto!
             };
             peoples.Add(person);
         });
@@ -107,11 +107,10 @@ public class PersonServices : IPersonServices
 
     public bool Update(int id, PersonInputModel obj, bool include = false)
     {
-        var pessoa = _repository.GetById<PersonEntityData>(id);
         PersonEntity personEntity = MappingInputModelToEntity(obj);
         PersonEntityData personEntityData = MappingEntityToEntityData(personEntity);
 
-        personEntityData.Id = pessoa.Id;
+        personEntityData.Id = id;
 
         _repository.Update<PersonEntityData>(personEntityData);
 

@@ -6,12 +6,6 @@
         "Causa": "Morte Matado"
     },
     {
-        "Id": 2,
-        "IdPessoa": 3,
-        "AnosVivencia": 805,
-        "Causa": "Morte Matado"
-    },
-    {
         "Id": 3,
         "IdPessoa": 2,
         "AnosVivencia": 904,
@@ -52,5 +46,11 @@
         "IdPessoa": 9,
         "AnosVivencia": 136,
         "Causa": "Teste API"
+    },
+    {
+        "Id": 2,
+        "IdPessoa": 3,
+        "AnosVivencia": 643,
+        "Causa": "Teste"
     }
 ]

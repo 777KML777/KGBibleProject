@@ -1,1 +1,52 @@
-[{"Id":4,"Nome":"S\u00E3o bernardo","Descricao":"Time de futebol"},{"Id":5,"Nome":"S\u00E3o jose dos campos","Descricao":"SP"},{"Id":2,"Nome":"Minas Gerais","Descricao":"Note \u00E9 muito quente"},{"Id":6,"Nome":"Montes claros","Descricao":"Fica no norte de minas"},{"Id":7,"Nome":"Roma","Descricao":"Cidade Italiana"},{"Id":8,"Nome":"Teste Nome","Descricao":"Teste Description"},{"Id":1,"Nome":"Teste Swagger","Descricao":"Apenas realizando este teste"},{"Id":3,"Nome":"Rio de janeiro","Descricao":"Cidade do rio"},{"Id":9,"Nome":"string","Descricao":"string"},{"Id":10,"Nome":"Gustav\u00E3o","Descricao":"Gustavo o brabo"}]
+[
+    {
+        "Id": 4,
+        "Nome": "S\u00E3o bernardo",
+        "Descricao": "Time de futebol"
+    },
+    {
+        "Id": 5,
+        "Nome": "S\u00E3o jose dos campos",
+        "Descricao": "SP"
+    },
+    {
+        "Id": 2,
+        "Nome": "Minas Gerais",
+        "Descricao": "Note \u00E9 muito quente"
+    },
+    {
+        "Id": 6,
+        "Nome": "Montes claros",
+        "Descricao": "Fica no norte de minas"
+    },
+    {
+        "Id": 7,
+        "Nome": "Roma",
+        "Descricao": "Cidade Italiana"
+    },
+    {
+        "Id": 8,
+        "Nome": "Teste Nome",
+        "Descricao": "Teste Description"
+    },
+    {
+        "Id": 1,
+        "Nome": "Teste Swagger",
+        "Descricao": "Apenas realizando este teste"
+    },
+    {
+        "Id": 3,
+        "Nome": "Rio de janeiro",
+        "Descricao": "Cidade do rio"
+    },
+    {
+        "Id": 9,
+        "Nome": "string",
+        "Descricao": "string"
+    },
+    {
+        "Id": 10,
+        "Nome": "Gustav\u00E3o",
+        "Descricao": "Gustavo o brabo"
+    }
+]

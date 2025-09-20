@@ -44,7 +44,7 @@ public class DeathServices : IDeathServices
         var personDto = personServices.MappingEntityToDto(personEntity);
 
         DeathDto deathDto = new DeathDto(deathEntity.IdPessoa, deathEntity.AnosVivencia, deathEntity.Causa, personDto.Nome);
-       
+
         return deathDto;
 
     }
@@ -106,19 +106,26 @@ public class DeathServices : IDeathServices
         var personData = _repository.ReadAll<PersonEntityData>().ToList();
 
         var personEntity = personServices.MappingListEntityDataToListEntity(personData);
-        
-        var personDto = personServices.MappingListEntityToListDto(personEntity);        
+
+        var personDto = personServices.MappingListEntityToListDto(personEntity);
 
         List<DeathDto> deathDto = new List<DeathDto>();
         //Primeiramente retornar os obj do banco 
-        deathEntity?.ForEach(item => deathDto.Add(new DeathDto(item.IdPessoa, item.AnosVivencia, item.Causa, personEntity.FirstOrDefault(x => x.Id == item.IdPessoa )?.Nome)));
-        
+        deathEntity?.ForEach(item => deathDto.Add(new DeathDto(item.IdPessoa, item.AnosVivencia, item.Causa, personEntity.FirstOrDefault(x => x.Id == item.IdPessoa)?.Nome)));
+
 
         return deathDto;
     }
 
     public bool Update(int id, DeathInputModel obj, bool include = false)
     {
-        throw new NotImplementedException();
+        DeathEntity deathEntity = MappingInputModelToEntity(obj);
+        DeathEntityData deathEntityData = MappingEntityToEntityData(deathEntity);
+
+        deathEntityData.Id = id;
+
+        _repository.Update<DeathEntityData>(deathEntityData);
+
+        return true;
     }
 }
