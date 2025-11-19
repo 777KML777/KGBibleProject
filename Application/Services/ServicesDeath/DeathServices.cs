@@ -27,7 +27,7 @@ public class DeathServices : IDeathServices
         return true;
     }
 
-    public bool Delete(DeathInputModel obj, bool include = false)
+    public bool Delete(int id, DeathInputModel obj, bool include = false)
     {
         throw new NotImplementedException();
     }
