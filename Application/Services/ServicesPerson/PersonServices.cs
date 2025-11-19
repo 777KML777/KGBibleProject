@@ -68,7 +68,14 @@ public class PersonServices : IPersonServices
     public List<PersonEntity> MappingListEntityDataToListEntity(List<PersonEntityData> obj)
     {
         List<PersonEntity> peoples = new List<PersonEntity>();
-        obj.ForEach(item => peoples.Add(new PersonEntity(item.Nome, item.Descricao, item.Sexo)));
+        obj.ForEach(item =>
+        {
+            var person = new PersonEntity(item.Nome, item.Descricao, item.Sexo)
+            {
+                Id = item.Id   // agora o Id vai junto!
+            };
+            peoples.Add(person);
+        });
         return peoples;
     }
 
@@ -100,11 +107,10 @@ public class PersonServices : IPersonServices
 
     public bool Update(int id, PersonInputModel obj, bool include = false)
     {
-        var pessoa = _repository.GetById<PersonEntityData>(id);
         PersonEntity personEntity = MappingInputModelToEntity(obj);
         PersonEntityData personEntityData = MappingEntityToEntityData(personEntity);
 
-        personEntityData.Id = pessoa.Id;
+        personEntityData.Id = id;
 
         _repository.Update<PersonEntityData>(personEntityData);
 

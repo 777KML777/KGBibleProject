@@ -102,12 +102,10 @@ public class CityServices : ICityServices
 
     public bool Update(int id, CityInputModel obj, bool include = false)
     {
-        var cidade = _repository.GetById<CityEntityData>(id);
-
         CityEntity cityEntity = MappingInputModelToEntity(obj);
         CityEntityData cityEntityData = MappingEntityToEntityData(cityEntity);
 
-        cityEntityData.Id = cidade.Id;
+        cityEntityData.Id = id;
         
         _repository.Update(cityEntityData);
         return true;
