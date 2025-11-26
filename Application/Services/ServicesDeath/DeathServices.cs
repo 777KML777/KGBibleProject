@@ -32,6 +32,11 @@ public class DeathServices : IDeathServices
         throw new NotImplementedException();
     }
 
+    public bool Delete(DeathInputModel obj, bool include = false)
+    {
+        throw new NotImplementedException();
+    }
+
     public DeathDto GetById(int id, bool include = false)
     {
         var deathData = _repository.GetById<DeathEntityData>(id);

@@ -1,7 +1,4 @@
-using Application.Dtos;
-using Application.Models;
 using Application.Services.ServicesCity;
-using Microsoft.AspNetCore.Mvc;
 
 namespace Api.Controllers
 {
