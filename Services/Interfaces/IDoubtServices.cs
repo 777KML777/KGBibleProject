@@ -1,4 +1,4 @@
-namespace Services.Implementations.Doubt; 
+namespace Services.Interfaces;
 
 public interface IDoubtServices : IServices<DoubtInputModel, DoubtDto, DoubtEntity>
 {
