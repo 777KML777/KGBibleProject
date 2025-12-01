@@ -28,5 +28,9 @@ namespace Api.Controllers
         [HttpPost]
         public void Create(BookInputModel obj) =>
             _services.Create(obj);
+
+        [HttpGet("{id}")]
+        public BookDto Get(int id) =>
+            _services.GetById(id);
     }
 }

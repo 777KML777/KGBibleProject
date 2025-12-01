@@ -2,6 +2,7 @@ using Application.Dtos;
 using Application.Models;
 using Application.Services.ServicesPerson;
 using Domain.Entities.Book;
+using Domain.Entities.Person;
 using JsonFile.Repository;
 using JsonFile.Repository.BookRepository;
 
@@ -31,12 +32,27 @@ public class BookServices : IBookServices
 
     public BookDto GetById(int id, bool include = false)
     {   
-        throw new NotImplementedException();
+        BookEntityData bookEntityData = _repository.GetById<BookEntityData>(id);
+        BookEntity bookEntity = MappingEntityDataToEntity(bookEntityData);
+
+        //Buscando objeto pessoa do banco
+        PersonServices personServices = new PersonServices();
+
+        PersonEntityData personEntityData = _repository.GetById<PersonEntityData>(bookEntity.AutorId);
+        PersonEntity personEntity = personServices.MappingEntityDataToEntity(personEntityData);
+        PersonDto personDto = personServices.MappingEntityToDto(personEntity);
+
+        //Buscando objetos concatenados do banco
+        BookDto bookDto = new BookDto(bookEntity.Nome, bookEntity.Testamento, bookEntity.AutorId, bookEntity.Descricao, personDto.Nome);
+
+        return bookDto;
+        
     }
 
     public BookEntity MappingEntityDataToEntity(BookEntityData obj)
     {
-        throw new NotImplementedException();
+        BookEntity bookEntity = new BookEntity(obj.Nome, obj.Testamento, obj.AutorId, obj.Descricao);
+        return bookEntity;
     }
 
     public BookDto MappingEntityToDto(BookEntity obj)
