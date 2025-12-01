@@ -52,5 +52,17 @@
         "Nome": "Paulo Teste",
         "Descricao": "Somente Teste API",
         "Sexo": "Masculino Teste"
+    },
+    {
+        "Id": 10,
+        "Nome": "Joao",
+        "Descricao": "Autor do livro Apocalipse",
+        "Sexo": "Masculino"
+    },
+    {
+        "Id": 11,
+        "Nome": "Daniel",
+        "Descricao": "Autor do livro Daniel",
+        "Sexo": "Masculino"
     }
 ]

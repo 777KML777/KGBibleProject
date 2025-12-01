@@ -1,0 +1,16 @@
+[
+    {
+        "Id": 1,
+        "Nome": "Apocalipse",
+        "Testamento": "Novo",
+        "AutorId": 10,
+        "Descricao": "Livro escrito por João, de uma visão sobre o fim dos tempos."
+    },
+    {
+        "Id": 2,
+        "Nome": "Daniel",
+        "Testamento": "Antigo",
+        "AutorId": 11,
+        "Descricao": "Livro escrito pelo Profeta Daniel onde há diversos relatos."
+    }
+]
