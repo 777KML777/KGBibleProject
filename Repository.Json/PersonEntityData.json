@@ -64,5 +64,11 @@
         "Nome": "Daniel",
         "Descricao": "Autor do livro Daniel",
         "Sexo": "Masculino"
+    },
+        {
+        "Id": 12,
+        "Nome": "Salomão",
+        "Descricao": "Homem mais sábio da terra",
+        "Sexo": "Masculino"
     }
 ]

@@ -16,7 +16,12 @@ public class BookServices : IBookServices
     }
     public bool Create(BookInputModel obj, bool include = false)
     {
-        throw new NotImplementedException();
+        BookEntity bookEntity = MappingInputModelToEntity(obj);
+        BookEntityData bookEntityData = MappingEntityToEntityData(bookEntity);
+
+        _repository.Create<BookEntityData>(bookEntityData);
+        
+        return true;
     }
 
     public bool Delete(BookInputModel obj, bool include = false)
@@ -41,12 +46,22 @@ public class BookServices : IBookServices
 
     public BookEntityData MappingEntityToEntityData(BookEntity obj)
     {
-        throw new NotImplementedException();
+        BookEntityData bookEntityData = new BookEntityData();
+
+        bookEntityData.AutorId = obj.AutorId;
+        bookEntityData.Descricao = obj.Descricao;
+        bookEntityData.Id = obj.Id;
+        bookEntityData.Nome = obj.Nome;
+        bookEntityData.Testamento = obj.Testamento;
+
+        return bookEntityData;
     }
 
     public BookEntity MappingInputModelToEntity(BookInputModel obj)
     {
-        throw new NotImplementedException();
+        BookEntity bookEntity = new BookEntity(obj.Nome, obj.Testamento, obj.AutorId, obj.Descricao);
+
+        return bookEntity;
     }
 
     public List<BookEntity> MappingListEntityDataToListEntity(List<BookEntityData> obj)
