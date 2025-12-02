@@ -128,6 +128,12 @@ public class BookServices : IBookServices
 
     public bool Update(int id, BookInputModel obj, bool include = false)
     {
-        throw new NotImplementedException();
+        BookEntity bookEntity = MappingInputModelToEntity(obj);
+        BookEntityData bookEntityData = MappingEntityToEntityData(bookEntity);
+        bookEntityData.Id = id;
+
+        _repository.Update<BookEntityData>(bookEntityData);
+
+        return true;
     }
 }

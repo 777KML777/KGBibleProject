@@ -32,5 +32,9 @@ namespace Api.Controllers
         [HttpGet("{id}")]
         public BookDto Get(int id) =>
             _services.GetById(id);
+        
+        [HttpPut("{id}")]
+        public void Update(int id, BookInputModel obj) =>
+            _services.Update(id, obj);
     }
 }

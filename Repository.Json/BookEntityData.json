@@ -1,12 +1,5 @@
 [
     {
-        "Id": 1,
-        "Nome": "Apocalipse",
-        "Testamento": "Novo",
-        "AutorId": 10,
-        "Descricao": "Livro escrito por Jo\u00E3o, de uma vis\u00E3o sobre o fim dos tempos."
-    },
-    {
         "Id": 2,
         "Nome": "Daniel",
         "Testamento": "Antigo",
@@ -19,5 +12,12 @@
         "Testamento": "Velho",
         "AutorId": 12,
         "Descricao": "Livro escrito por Salom\u00E3o"
+    },
+    {
+        "Id": 1,
+        "Nome": "Apocalipse",
+        "Testamento": "Novo",
+        "AutorId": 10,
+        "Descricao": "Revela\u00E7\u00E3o de Jo\u00E3o sobre o fim dos tempos."
     }
 ]
