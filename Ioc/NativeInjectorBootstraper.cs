@@ -13,8 +13,11 @@ public static class NativeInjectorBootstrapper
         // Services
         builder.AddScoped<IDoubtServices, DoubtServices>(); 
         // -- Services Mappers 
+        builder.AddScoped<IDoubtServicesMapper, DoubtServicesMapper>(); 
 
         // Repositories 
+        builder.AddScoped<IDoubtRepositoryMapper, DoubtRepositoryMapper>(); 
         // -- Repositories Mappers 
+        builder.AddScoped<IDoubtRepositoryMapper, DoubtRepositoryMapper>(); 
     }
 }

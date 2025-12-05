@@ -1,4 +1,5 @@
 using Application.Apps;
+using Services.Objects.Dtos;
 
 namespace Api.Controllers;
 
@@ -10,7 +11,7 @@ public class DoubtController
 ) : ControllerBase
 {
     [HttpPost]
-    public DoubtInputModel Create(DoubtInputModel input) =>
+    public DoubtDto Create(DoubtInputModel input) =>
         _appServices.Create(input);
 
     [HttpGet, Route("progressao-aritmetica")]

@@ -1,6 +1,7 @@
 namespace Services.Objects.Models; 
 
-public class DoubtInputModel
+public record class DoubtInputModel
 (
-    
+    DoubtDto Dto,
+    List<LivroDto> Livros  
 );

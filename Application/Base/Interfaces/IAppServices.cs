@@ -1,6 +1,6 @@
 namespace Application.Base.Interfaces; 
 
-public interface IAppServices <TInputModel>
+public interface IAppServices <TInputModel, TDto>
 {
-    public TInputModel Create(TInputModel input);
+    public TDto Create(TInputModel input);
 }
