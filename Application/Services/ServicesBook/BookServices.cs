@@ -43,7 +43,8 @@ public class BookServices : IBookServices
         PersonDto personDto = personServices.MappingEntityToDto(personEntity);
 
         //Buscando objetos concatenados do banco
-        BookDto bookDto = new BookDto(bookEntity.Nome, bookEntity.Testamento, bookEntity.AutorId, bookEntity.Descricao, personDto.Nome);
+        BookDto bookDto = new BookDto(bookEntity.Nome, bookEntity.Testamento,bookEntity.AutorId, bookEntity.Descricao, personDto.Nome, 
+                            bookEntity.Capitulos, bookEntity.Versiculos);
 
         return bookDto;
         
@@ -51,7 +52,7 @@ public class BookServices : IBookServices
 
     public BookEntity MappingEntityDataToEntity(BookEntityData obj)
     {
-        BookEntity bookEntity = new BookEntity(obj.Nome, obj.Testamento, obj.AutorId, obj.Descricao);
+        BookEntity bookEntity = new BookEntity(obj.Nome, obj.Testamento, obj.AutorId, obj.Descricao, obj.Capitulos, obj.Versiculos);
         return bookEntity;
     }
 
@@ -69,13 +70,15 @@ public class BookServices : IBookServices
         bookEntityData.Id = obj.Id;
         bookEntityData.Nome = obj.Nome;
         bookEntityData.Testamento = obj.Testamento;
+        bookEntityData.Capitulos = obj.Capitulos;
+        bookEntityData.Versiculos = obj.Versiculos;
 
         return bookEntityData;
     }
 
     public BookEntity MappingInputModelToEntity(BookInputModel obj)
     {
-        BookEntity bookEntity = new BookEntity(obj.Nome, obj.Testamento, obj.AutorId, obj.Descricao);
+        BookEntity bookEntity = new BookEntity(obj.Nome, obj.Testamento, obj.AutorId, obj.Descricao, obj.Capitulos, obj.Versiculos);
 
         return bookEntity;
     }
@@ -83,7 +86,7 @@ public class BookServices : IBookServices
     public List<BookEntity> MappingListEntityDataToListEntity(List<BookEntityData> obj)
     {
         List<BookEntity> bookEntities = new List<BookEntity>();
-        obj.ForEach(item => bookEntities.Add(new BookEntity(item.Nome, item.Testamento, item. AutorId, item.Descricao)));
+        obj.ForEach(item => bookEntities.Add(new BookEntity(item.Nome, item.Testamento, item. AutorId, item.Descricao, item.Capitulos, item.Versiculos)));
 
         return bookEntities;
     }
@@ -120,7 +123,9 @@ public class BookServices : IBookServices
                  item.Testamento, 
                  item.AutorId, 
                  item.Descricao, 
-                 personEntity.FirstOrDefault(x => x.Id == item.AutorId)?.Nome)));
+                 personEntity.FirstOrDefault(x => x.Id == item.AutorId)?.Nome,
+                 item.Capitulos,
+                 item.Versiculos)));
 
         return bookDto;
 
