@@ -1,4 +1,4 @@
-namespace Repository.Json;
+namespace StorageContextJson;
 
 public interface IGenericRepository
 {

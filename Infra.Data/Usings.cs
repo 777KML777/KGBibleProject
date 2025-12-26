@@ -14,7 +14,7 @@ global using Domain.Base.Interfaces;
 global using Microsoft.AspNetCore.Builder;
 global using Microsoft.Extensions.DependencyInjection;
 
-global using Repository.Json;
+global using StorageContextJson;
 #endregion
 
 #region ".NET SYSTEM"

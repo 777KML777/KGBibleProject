@@ -1,6 +1,6 @@
 using System.Text.Json;
 
-namespace Repository.Json;
+namespace StorageContextJson;
 
 public abstract class GenericRepository : IGenericRepository/* <EntityData> */
 {

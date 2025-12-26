@@ -1,6 +1,6 @@
 ﻿
 using Domain.Entities.City;
-using Repository.Json;
+using StorageContextJson;
 
 namespace Infra.Data.CityRepository;
 public class CityRepository : GenericRepository, ICityRepository

@@ -1,4 +1,4 @@
-using Ioc;
+using Infra.Ioc;
 
 var builder = WebApplication.CreateBuilder(args);
 

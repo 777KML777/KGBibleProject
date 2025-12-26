@@ -1,7 +1,7 @@
 using Infra.Data.Interfaces;
 using Infra.Data.Mappers;
 
-namespace Ioc; 
+namespace Infra.Ioc; 
 
 public static class NativeInjectorBootstrapper
 {

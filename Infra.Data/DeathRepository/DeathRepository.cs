@@ -1,6 +1,6 @@
 
 using Domain.Entities.Death;
-using Repository.Json;
+using StorageContextJson;
 
 namespace Infra.Data.DeathRepository;
 public class DeathRepository : GenericRepository, IDeathRepository

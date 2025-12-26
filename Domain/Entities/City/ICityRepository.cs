@@ -1,6 +1,6 @@
 namespace Domain.Entities.City;
 
-using Repository.Json;
+using StorageContextJson;
 
 public interface ICityRepository : IGenericRepository
 {
