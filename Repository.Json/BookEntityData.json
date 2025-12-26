@@ -25,5 +25,23 @@
         "Descricao": "Livro escrito por Salom\u00E3o",
         "Capitulos": 12,
         "Versiculos": 222
+    },
+    {
+        "Id": 5,
+        "Nome": "Salmos",
+        "Testamento": "Antigo",
+        "AutorId": 11,
+        "Descricao": "Livro do antigo testamento",
+        "Capitulos": 130,
+        "Versiculos": 520
+    },
+    {
+        "Id": 6,
+        "Nome": "Primeira Ep\u00EDstola de Joao",
+        "Testamento": "Novo",
+        "AutorId": 10,
+        "Descricao": "Livro escrito por Joao",
+        "Capitulos": 5,
+        "Versiculos": 105
     }
 ]

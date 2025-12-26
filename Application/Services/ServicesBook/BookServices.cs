@@ -17,11 +17,23 @@ public class BookServices : IBookServices
     }
     public bool Create(BookInputModel obj, bool include = false)
     {
+        //retornando lista do banco
+        var book = Read();
+
         BookEntity bookEntity = MappingInputModelToEntity(obj);
         BookEntityData bookEntityData = MappingEntityToEntityData(bookEntity);
 
-        _repository.Create<BookEntityData>(bookEntityData);
-        
+        //Verificando se o nome já existe no banco
+        foreach (var item in book)
+        {
+            if (obj.Nome == item.Nome)
+            {
+                throw new Exception("Produto já existente no banco");
+            }
+        }
+
+        _repository.Create(bookEntityData);
+
         return true;
     }
 
@@ -31,7 +43,7 @@ public class BookServices : IBookServices
     }
 
     public BookDto GetById(int id, bool include = false)
-    {   
+    {
         BookEntityData bookEntityData = _repository.GetById<BookEntityData>(id);
         BookEntity bookEntity = MappingEntityDataToEntity(bookEntityData);
 
@@ -43,11 +55,11 @@ public class BookServices : IBookServices
         PersonDto personDto = personServices.MappingEntityToDto(personEntity);
 
         //Buscando objetos concatenados do banco
-        BookDto bookDto = new BookDto(bookEntity.Nome, bookEntity.Testamento,bookEntity.AutorId, bookEntity.Descricao, personDto.Nome, 
+        BookDto bookDto = new BookDto(bookEntity.Nome, bookEntity.Testamento, bookEntity.AutorId, bookEntity.Descricao, personDto.Nome,
                             bookEntity.Capitulos, bookEntity.Versiculos);
 
         return bookDto;
-        
+
     }
 
     public BookEntity MappingEntityDataToEntity(BookEntityData obj)
@@ -57,7 +69,7 @@ public class BookServices : IBookServices
     }
 
     public BookDto MappingEntityToDto(BookEntity obj)
-    {   
+    {
         throw new NotImplementedException();
     }
 
@@ -86,7 +98,7 @@ public class BookServices : IBookServices
     public List<BookEntity> MappingListEntityDataToListEntity(List<BookEntityData> obj)
     {
         List<BookEntity> bookEntities = new List<BookEntity>();
-        obj.ForEach(item => bookEntities.Add(new BookEntity(item.Nome, item.Testamento, item. AutorId, item.Descricao, item.Capitulos, item.Versiculos)));
+        obj.ForEach(item => bookEntities.Add(new BookEntity(item.Nome, item.Testamento, item.AutorId, item.Descricao, item.Capitulos, item.Versiculos)));
 
         return bookEntities;
     }
@@ -117,12 +129,12 @@ public class BookServices : IBookServices
         List<BookDto> bookDto = new List<BookDto>();
 
         //Retornar objetos do banco
-        bookEntitiy?.ForEach(item => 
+        bookEntitiy?.ForEach(item =>
             bookDto.Add(
                 new BookDto(item.Nome,
-                 item.Testamento, 
-                 item.AutorId, 
-                 item.Descricao, 
+                 item.Testamento,
+                 item.AutorId,
+                 item.Descricao,
                  personEntity.FirstOrDefault(x => x.Id == item.AutorId)?.Nome,
                  item.Capitulos,
                  item.Versiculos)));
@@ -133,6 +145,12 @@ public class BookServices : IBookServices
 
     public bool Update(int id, BookInputModel obj, bool include = false)
     {
+        var book = GetById(id);
+
+        if (book == null)
+        {
+            throw new Exception("Nenhum produto encontrado");
+        }
         BookEntity bookEntity = MappingInputModelToEntity(obj);
         BookEntityData bookEntityData = MappingEntityToEntityData(bookEntity);
         bookEntityData.Id = id;
