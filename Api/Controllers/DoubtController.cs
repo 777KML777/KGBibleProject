@@ -15,6 +15,6 @@ public class DoubtController
         _appServices.Create(input);
 
     [HttpGet, Route("progressao-aritmetica")]
-    public string ProgressaoAritmetica(int termoInicial, int termo, int razao, int numeroPosicao) =>
+    public static string ProgressaoAritmetica(int termoInicial, int termo, int razao, int numeroPosicao) =>
         ProgressaoAritmeticaAppServices.Exibicao(termoInicial, termo, razao, numeroPosicao);
 }

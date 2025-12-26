@@ -1,3 +1,6 @@
 namespace Domain.Interfaces; 
 
-public interface IDoubtRepository : IReposit
+public interface IDoubtRepository : IRepository
+{
+    
+}

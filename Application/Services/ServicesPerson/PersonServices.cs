@@ -1,8 +1,8 @@
 using Application.Dtos;
 using Application.Models;
 using Domain.Entities.Person;
-using JsonFile.Repository;
-using JsonFile.Repository.PersonRepository;
+using Infra.Data;
+using Infra.Data.PersonRepository;
 
 namespace Application.Services.ServicesPerson;
 

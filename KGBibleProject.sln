@@ -9,7 +9,7 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Domain", "Domain\Domain.csp
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Application", "Application\Application.csproj", "{421E7C71-D30B-4338-BDA9-55C8D8E6A877}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "JsonFile.Repository", "JsonFile.Repository\JsonFile.Repository.csproj", "{86C521D4-7EEF-4CBC-9523-59981E8EAEE7}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Infra.Data", "Infra.Data\Infra.Data.csproj", "{86C521D4-7EEF-4CBC-9523-59981E8EAEE7}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EntityFramework.Repository", "EntityFramework.Repository\EntityFramework.Repository.csproj", "{0425B4A5-F56D-4309-BBF6-AA740B2395DE}"
 EndProject

@@ -2,7 +2,7 @@
 using Domain.Entities.City;
 using Repository.Json;
 
-namespace JsonFile.Repository.CityRepository;
+namespace Infra.Data.CityRepository;
 public class CityRepository : GenericRepository, ICityRepository
 {
     

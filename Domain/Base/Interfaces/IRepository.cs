@@ -1,21 +1,21 @@
 namespace Domain.Base.Interfaces;
 
-public interface IRepository<TEntity>
+public interface IRepository
 {
     #region "RSO - Region Specific Operation"
     // depends of class will implement interface
     #endregion
 
     #region "RCO - Region Commom Operation"
-    public TEntity GetById(int identifier);
-    public TEntity GetLast(int identifier);
-    public int GetLastId(int identifier);
+    protected int GetLastId<TEntity>();
+    protected TEntity GetLast<TEntity>();
+    protected TEntity GetById<TEntity>(int identifier);
     #endregion
 
     #region "CRUD Operations"
-    public TEntity Create(TEntity entity);
-    public IEnumerable<TEntity> Read();
-    public TEntity Update(TEntity entity);
-    public bool Delete(int identifier);
+    protected TEntity Create<TEntity>(TEntity entity);
+    protected IEnumerable<TEntity> Read<TEntity>();
+    protected TEntity Update<TEntity>(TEntity entity);
+    protected bool Delete<TEntity>(int identifier);
     #endregion
 }

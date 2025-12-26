@@ -1,4 +1,4 @@
-namespace JsonFile.Repository;
+namespace Infra.Data;
 
 public class PersonEntityData
 {

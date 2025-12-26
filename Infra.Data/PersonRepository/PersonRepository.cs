@@ -1,7 +1,7 @@
 using Domain.Entities.Person;
 using Repository.Json;
 
-namespace JsonFile.Repository.PersonRepository;
+namespace Infra.Data.PersonRepository;
 public class PersonRepository : GenericRepository, IPersonRepository
 {
     

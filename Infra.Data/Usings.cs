@@ -1,19 +1,20 @@
 ﻿#region "CURRENT ASSEMBLY"
+global using Infra.Data.Base.Class;
 #endregion
 
 #region "ASSEMBLIES REFERENCES"
-global using Domain.Services; 
-global using Domain.Mappers; 
-global using Domain.Interfaces; 
+global using Domain.Interfaces;
+global using Domain.Base.Interfaces;
 
-global using Application.Apps;
-global using Application.Interfaces;
 
-global using Infra.Data.Repositories;
 #endregion
 
 #region "PACKAGES"
+// Microsoft 
+global using Microsoft.AspNetCore.Builder;
 global using Microsoft.Extensions.DependencyInjection;
+
+global using Repository.Json;
 #endregion
 
 #region ".NET SYSTEM"
