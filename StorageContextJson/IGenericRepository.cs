@@ -2,8 +2,10 @@ namespace StorageContextJson;
 
 public interface IGenericRepository
 {
+    #region "C.R.U.D - Operation"
+    #endregion
     public T Create<T>(T entity);
-    public IList<T> ReadAll<T>();
+    public IEnumerable<T> ReadAll<T>();
     public T Update<T>(T entity);
     public bool Delete<T>(T entity);
     public int GetLastId<T>();

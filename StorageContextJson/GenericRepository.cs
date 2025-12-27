@@ -1,8 +1,9 @@
+using System.Collections.ObjectModel;
 using System.Text.Json;
 
 namespace StorageContextJson;
 
-public abstract class GenericRepository : IGenericRepository/* <EntityData> */
+public class GenericRepository : IGenericRepository
 {
     private string nameInclude = string.Empty;
     public T Create<T>(T entity)
@@ -13,24 +14,33 @@ public abstract class GenericRepository : IGenericRepository/* <EntityData> */
 
         entity.GetType().GetProperty("Id").SetValue(entity, idIncrementado);
 
-        IList<T> newJsonData = ReadAll<T>();
-        newJsonData.Add(entity);
-
+        IEnumerable<T> newJsonData = ReadAll<T>();
+        var x = newJsonData.ToList();
+        x.Add(entity);
         var nameRepository = entity.GetType().Name;
+
+        // Inserir a mesma validação 
+        // Em caso do Create e update que recebem o entity e não o entitydata por parâmetro
+        nameRepository = !nameRepository.Contains("Data") ? nameRepository.Insert(nameRepository.Length, "Data") : nameRepository;
+
         File.WriteAllText(MachineExplorer.GetFilePath(nameRepository),
-             JsonSerializer.Serialize(newJsonData));
+             JsonSerializer.Serialize(x));
 
         return GetById<T>(GetLastId<T>());
     }
-    public IList<T> ReadAll<T>()
+    public IEnumerable<T> ReadAll<T>()
     {
 
         var y = typeof(T);
         var nameRepository = nameInclude == string.Empty ? typeof(T).Name : nameInclude;
 
+        // Em caso do Create e update que recebem o entity e não o entitydata por parâmetro
+        nameRepository = !nameRepository.Contains("Data") ? nameRepository.Insert(nameRepository.Length, "Data") : nameRepository;
+
+
         string jsonObject = File.ReadAllText(MachineExplorer.GetFilePath(nameRepository));
 
-        List<T> lstJsonData = JsonSerializer.Deserialize<List<T>>(jsonObject) ??
+        IEnumerable<T> lstJsonData = JsonSerializer.Deserialize<IEnumerable<T>>(jsonObject) ??
             throw new Exception($"Erro na leitura da coleção do banco de dados");
 
         return lstJsonData;
@@ -41,7 +51,8 @@ public abstract class GenericRepository : IGenericRepository/* <EntityData> */
 
         int id = Convert.ToInt32(typeof(T).GetProperty("Id").GetValue(entity));
 
-        IList<T> updatedJsonData = ReadAll<T>();
+        IEnumerable<T> updatedJsonData = ReadAll<T>();
+        var x = updatedJsonData.ToList();
 
         int index = 0;
         bool removed = false;
@@ -52,7 +63,7 @@ public abstract class GenericRepository : IGenericRepository/* <EntityData> */
 
             if (Convert.ToInt32(idLista) == id)
             {
-                updatedJsonData.RemoveAt(index);
+                x.RemoveAt(index);
                 removed = true;
             }
 
@@ -60,21 +71,21 @@ public abstract class GenericRepository : IGenericRepository/* <EntityData> */
         }
 
         if (removed)
-            updatedJsonData.Add(entity);
+            x.Add(entity);
 
         var nameRepository = entity.GetType().Name;
         File.WriteAllText(MachineExplorer.GetFilePath(nameRepository),
-             JsonSerializer.Serialize(updatedJsonData));
+             JsonSerializer.Serialize(x));
 
         return GetById<T>(id);
     }
 
- 
+
     public bool Delete<T>(T entity)
     {
         int id = Convert.ToInt32(typeof(T).GetProperty("Id").GetValue(entity));
 
-        IList<T> updatedJsonData = ReadAll<T>();
+        IEnumerable<T> updatedJsonData = ReadAll<T>();
 
         int index = 0;
         bool removed = false;
@@ -85,7 +96,7 @@ public abstract class GenericRepository : IGenericRepository/* <EntityData> */
 
             if (Convert.ToInt32(idLista) == id)
             {
-                updatedJsonData.RemoveAt(index);
+                updatedJsonData.ToList().RemoveAt(index);
                 removed = true;
             }
 
@@ -133,7 +144,7 @@ public abstract class GenericRepository : IGenericRepository/* <EntityData> */
             }
             else
                 throw new Exception($"Nenhuma ocorrência com o identificador {id} foi encontrada.");
-        }   
+        }
         catch (System.Exception)
         {
 
@@ -156,9 +167,9 @@ public abstract class GenericRepository : IGenericRepository/* <EntityData> */
 
         return data;
     }
-    internal T IncludeRange<T, TInclude>(T data, List<TInclude> toInclude, bool repository = false)
+    internal T IncludeRange<T, TInclude>(T data, IEnumerable<TInclude> toInclude, bool repository = false)
     {
-        toInclude.ForEach(item => Include(data, item));
+        toInclude.ToList().ForEach(item => Include(data, item));
         return data;
     }
 }

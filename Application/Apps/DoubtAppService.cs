@@ -1,11 +1,13 @@
-using Services.Objects.Dtos;
+using Application.Inputs;
+using Domain.Dtos;
+using Domain.Interfaces;
 
 namespace Application.Apps;
 
-public class DoubtAppServices
+public class DoubtAppService
 (
-    IDoubtServices _services
-) : IDoubtAppServices
+    IDoubtService _service
+) : IDoubtAppService
 {
     public DoubtDto Create(DoubtInputModel input)
     {

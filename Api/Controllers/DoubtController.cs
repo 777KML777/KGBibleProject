@@ -1,5 +1,6 @@
 using Application.Apps;
-using Services.Objects.Dtos;
+using Application.Inputs;
+using Domain.Dtos;
 
 namespace Api.Controllers;
 
@@ -7,12 +8,12 @@ namespace Api.Controllers;
 [Route("[controller]")]
 public class DoubtController
 (
-    IDoubtAppServices _appServices
+    IDoubtAppService _app
 ) : ControllerBase
 {
     [HttpPost]
     public DoubtDto Create(DoubtInputModel input) =>
-        _appServices.Create(input);
+        _app.Create(input);
 
     [HttpGet, Route("progressao-aritmetica")]
     public static string ProgressaoAritmetica(int termoInicial, int termo, int razao, int numeroPosicao) =>

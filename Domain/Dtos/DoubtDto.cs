@@ -1,6 +1,8 @@
-namespace Domain.Dtos; 
+namespace Domain.Dtos;
 
-public class DoubtDto
-{
-    
-}
+public record class DoubtDto
+(
+    string Pergunta,
+    List<string> Assuntos
+ // List<RespostaDto> 
+);

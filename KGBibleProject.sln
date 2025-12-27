@@ -15,8 +15,6 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "StorageEntityFramework", "S
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Api", "Api\Api.csproj", "{9210F626-9584-40A1-A654-F641226158FB}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Services", "Services\Services.csproj", "{69F83EA6-CAB1-4D8C-B9A5-AA95976B072B}"
-EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Infra.Ioc", "Infra.Ioc\Infra.Ioc.csproj", "{1D5A7415-3D58-402B-9BDA-52E69A429CF5}"
 EndProject
 Global
