@@ -1,3 +1,5 @@
+using Infra.Ioc;
+
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
@@ -14,6 +16,7 @@ builder.Services.AddCors(o => o.AddPolicy("MyPolicy", builder =>
    .AllowAnyHeader();
 }));
 
+NativeInjectorBootstrapper.Register(builder.Services);
 
 var app = builder.Build();
 

@@ -1,7 +1,7 @@
 using Application.Dtos;
 using Application.Models;
 using Domain.Entities.City;
-using JsonFile.Repository; 
+using Infra.Data; 
 
 namespace Application.Services.ServicesCity;
 

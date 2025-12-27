@@ -1,7 +1,7 @@
 using Application.Dtos;
 using Application.Models;
 using Domain.Entities.Person;
-using JsonFile.Repository; 
+using Infra.Data; 
 
 namespace Application.Services.ServicesPerson;
 

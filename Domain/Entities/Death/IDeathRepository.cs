@@ -1,6 +1,6 @@
 namespace Domain.Entities.Death;
 
-using Repository.Json;
+using StorageContextJson;
 
 public interface IDeathRepository : IGenericRepository
 {

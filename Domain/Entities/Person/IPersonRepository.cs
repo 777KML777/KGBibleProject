@@ -1,6 +1,6 @@
 namespace Domain.Entities.Person;
 
-using Repository.Json;
+using StorageContextJson;
 
 public interface IPersonRepository : IGenericRepository
 {

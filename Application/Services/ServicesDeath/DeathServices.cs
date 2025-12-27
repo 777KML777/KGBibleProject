@@ -4,8 +4,8 @@ using Application.Models;
 using Application.Services.ServicesPerson;
 using Domain.Entities.Death;
 using Domain.Entities.Person;
-using JsonFile.Repository;
-using JsonFile.Repository.DeathRepository;
+using Infra.Data;
+using Infra.Data.DeathRepository;
 using JsonFile.Repositoy;
 
 namespace Application.Services.ServicesDeath;
@@ -28,6 +28,11 @@ public class DeathServices : IDeathServices
     }
 
     public bool Delete(int id, DeathInputModel obj, bool include = false)
+    {
+        throw new NotImplementedException();
+    }
+
+    public bool Delete(DeathInputModel obj, bool include = false)
     {
         throw new NotImplementedException();
     }
