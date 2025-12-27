@@ -1,3 +1,5 @@
+using Domain.Base.Class;
+
 namespace Domain.Entities.Person;
 
 public class PersonEntity : Entity

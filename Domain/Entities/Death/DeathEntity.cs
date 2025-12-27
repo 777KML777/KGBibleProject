@@ -1,3 +1,4 @@
+using Domain.Base.Class;
 using Domain.Entities;
 
 namespace Domain.Entities.Death;

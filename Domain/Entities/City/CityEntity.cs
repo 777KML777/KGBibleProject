@@ -1,4 +1,4 @@
-using System.Reflection.Emit;
+using Domain.Base.Class;
 
 namespace Domain.Entities.City;
 

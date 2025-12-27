@@ -1,0 +1,47 @@
+[
+    {
+        "Id": 3,
+        "Nome": "Apocalipse",
+        "Testamento": "Novo",
+        "AutorId": 10,
+        "Descricao": "Livro escrito por Jo\u00E3o, de uma vis\u00E3o sobre o fim dos tempos.",
+        "Capitulos": 22,
+        "Versiculos": 405
+    },
+    {
+        "Id": 2,
+        "Nome": "Daniel",
+        "Testamento": "Antigo",
+        "AutorId": 11,
+        "Descricao": "Livro escrito pelo profeta Daniel onde h\u00E1 diversos relatos.",
+        "Capitulos": 14,
+        "Versiculos": 529
+    },
+    {
+        "Id": 4,
+        "Nome": "Eclesi\u00E1stes",
+        "Testamento": "Antigo",
+        "AutorId": 12,
+        "Descricao": "Livro escrito por Salom\u00E3o",
+        "Capitulos": 12,
+        "Versiculos": 222
+    },
+    {
+        "Id": 5,
+        "Nome": "Salmos",
+        "Testamento": "Antigo",
+        "AutorId": 11,
+        "Descricao": "Livro do antigo testamento",
+        "Capitulos": 130,
+        "Versiculos": 520
+    },
+    {
+        "Id": 6,
+        "Nome": "Primeira Ep\u00EDstola de Joao",
+        "Testamento": "Novo",
+        "AutorId": 10,
+        "Descricao": "Livro escrito por Joao",
+        "Capitulos": 5,
+        "Versiculos": 105
+    }
+]

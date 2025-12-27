@@ -1,5 +1,6 @@
 ﻿#region "CURRENT ASSEMBLY"
 global using Infra.Data.Base.Class;
+global using Infra.Data.Interfaces;
 #endregion
 
 #region "ASSEMBLIES REFERENCES"

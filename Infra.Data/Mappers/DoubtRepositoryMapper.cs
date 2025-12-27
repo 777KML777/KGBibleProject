@@ -1,7 +1,6 @@
 using Domain.Entities;
-using Infra.Data.Base.Interfaces;
-using Infra.Data.Interfaces;
 using Infra.Data.Mappings;
+using Infra.Data.Base.Interfaces;
 
 namespace Infra.Data.Mappers;
 
