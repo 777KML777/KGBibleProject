@@ -12,4 +12,7 @@ public static class BookServiceExtension
 
     public static BookEntity ToEntity(this BookDto dto) =>
         _mapper.MappingDtoToEntity(dto);
+
+    public static IEnumerable<BookDto> ToDtoEnumerable(this IEnumerable<BookEntity> entities) => 
+        _mapper.MappingEntityEnumerableToDtoEnumerable(entities);
 }

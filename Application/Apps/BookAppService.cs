@@ -21,6 +21,6 @@ public class BookAppService
 
     public List<BookDto> Read()
     {
-        return _service.Read().ToList();
+        return [.. _service.Read()];
     }
 }

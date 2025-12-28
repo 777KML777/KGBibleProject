@@ -17,7 +17,7 @@ public class BookService
         if (entity != null)
             throw new BookDomainExceptionAlreadyExist(input.Nome);
 
-        return   _repository.Create(input.ToEntity()).ToDto();;
+        return _repository.Create(input.ToEntity()).ToDto(); ;
     }
 
 
@@ -60,16 +60,12 @@ public class BookService
     //     return bookEntities;
     // }
 
+    public IEnumerable<BookDto> Read()
+    {
+        // TODO: Ter a quantidade de autores que escreveram o livro. 
+        return [.. _repository.Read().ToDtoEnumerable()];
+    }
 
-    // public List<BookDto> Read(bool include = false)
-    // {
-    //     var book = _repository.ReadAll<BookEntityData>().ToList();
-    //     List<BookEntity> bookEntitiy = MappingListEntityDataToListEntity(book);
-
-
-    //     //Chamando lista e mapeando objetos de PERSON
-    //     PersonServices personServices = new PersonServices();
-    //     var personData = _repository.ReadAll<PersonEntityData>().ToList();
 
     //     var personEntity = personServices.MappingListEntityDataToListEntity(personData);
 
@@ -92,10 +88,7 @@ public class BookService
 
     // }
 
-    public IEnumerable<BookDto> Read()
-    {
-        throw new NotImplementedException();
-    }
+
 
     // public bool Update(int id, BookInputModel obj, bool include = false)
     // {

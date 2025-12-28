@@ -7,6 +7,7 @@ public interface IBookRepository : IRepository
     #endregion
     #region r4 TEMPORALLY
     public BookEntity Create(BookEntity entity);
+    public IEnumerable<BookEntity> Read();
     public BookEntity GetById(int id);
     #endregion 
 }

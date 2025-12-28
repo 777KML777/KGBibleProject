@@ -15,8 +15,8 @@ namespace Api.Controllers
         }
 
         [HttpGet]
-        public List<BookDto> Get() =>
-            _app.Read();
+        public IActionResult Get() =>
+            Ok(_app.Read());
 
         [HttpPost]
         public IActionResult Create(BookInputModel obj) =>

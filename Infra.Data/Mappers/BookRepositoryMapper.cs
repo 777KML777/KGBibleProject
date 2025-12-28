@@ -1,14 +1,16 @@
 using Domain.Entities;
-using Infra.Data.Base.Interfaces;
 using Infra.Data.Mappings;
+using Infra.Data.Extension;
 
 namespace Infra.Data.Mappers;
 
 public class BookRepositoryMapper : IBookRepositoryMapper
 {
-    IEnumerable<BookEntity> IRepositoryMapper<BookEntity, BookEntityData>.MappingEntityDataEnumerableToEntityEnumerable(IEnumerable<BookEntityData> datas)
+    public IEnumerable<BookEntity> MappingEntityDataEnumerableToEntityEnumerable(IEnumerable<BookEntityData> datas)
     {
-        throw new NotImplementedException();
+        ICollection<BookEntity> entities = [];
+        datas.ToList().ForEach(item => entities.Add(item.ToEntity()));
+        return entities;
     }
 
     public BookEntity MappingEntityDataToEntity(BookEntityData data)

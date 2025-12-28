@@ -1,6 +1,6 @@
 using Domain.Entities;
-using Infra.Data.Extension;
 using Infra.Data.Mappings;
+using Infra.Data.Extension;
 
 namespace Infra.Data.Repositories;
 
@@ -15,7 +15,8 @@ public class BookRepository
     #endregion 
 
     #region r4 TEMPORALLY
-    public BookEntity GetById(int id) => GetById<BookEntityData>(id).ToEntity();
     public BookEntity Create(BookEntity entity) => Create(entity.ToEntityData()).ToEntity();
+    public IEnumerable<BookEntity> Read() => Read<BookEntityData>().ToEntityEnumerable();
+    public BookEntity GetById(int id) => GetById<BookEntityData>(id).ToEntity();
     #endregion 
 }
