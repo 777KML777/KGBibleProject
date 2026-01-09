@@ -1,6 +1,6 @@
 namespace Application.Models;
 
-public class PersonInputModel
+public class CharacterInputModel
 {
     public string Nome { get; set; }
     public string Descricao { get; set; }

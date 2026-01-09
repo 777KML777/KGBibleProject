@@ -1,6 +1,6 @@
 namespace Infra.Data;
 
-public class PersonEntityData
+public class CharacterEntityData
 {
     public int Id { get; set; }
     public string Nome { get; set; }

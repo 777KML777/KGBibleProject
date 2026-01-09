@@ -32,14 +32,14 @@ public class BookService
     //     BookEntity bookEntity = MappingEntityDataToEntity(bookEntityData);
 
     //     //Buscando objeto pessoa do banco
-    //     PersonServices personServices = new PersonServices();
+    //     CharacterServices characterServices = new CharacterServices();
 
-    //     PersonEntityData personEntityData = _repository.GetById<PersonEntityData>(bookEntity.AutorId);
-    //     PersonEntity personEntity = personServices.MappingEntityDataToEntity(personEntityData);
-    //     PersonDto personDto = personServices.MappingEntityToDto(personEntity);
+    //     CharacterEntityData characterEntityData = _repository.GetById<CharacterEntityData>(bookEntity.AutorId);
+    //     CharacterEntity characterEntity = characterServices.MappingEntityDataToEntity(characterEntityData);
+    //     CharacterDto characterDto = characterServices.MappingEntityToDto(characterEntity);
 
     //     //Buscando objetos concatenados do banco
-    //     BookDto bookDto = new BookDto(bookEntity.Nome, bookEntity.Testamento, bookEntity.AutorId, bookEntity.Descricao, personDto.Nome,
+    //     BookDto bookDto = new BookDto(bookEntity.Nome, bookEntity.Testamento, bookEntity.AutorId, bookEntity.Descricao, characterDto.Nome,
     //                         bookEntity.Capitulos, bookEntity.Versiculos);
 
     //     return bookDto;
@@ -67,9 +67,9 @@ public class BookService
     }
 
 
-    //     var personEntity = personServices.MappingListEntityDataToListEntity(personData);
+    //     var characterEntity = characterServices.MappingListEntityDataToListEntity(characterData);
 
-    //     var personDto = personServices.MappingListEntityToListDto(personEntity);
+    //     var characterDto = characterServices.MappingListEntityToListDto(characterEntity);
 
     //     List<BookDto> bookDto = new List<BookDto>();
 
@@ -80,7 +80,7 @@ public class BookService
     //              item.Testamento,
     //              item.AutorId,
     //              item.Descricao,
-    //              personEntity.FirstOrDefault(x => x.Id == item.AutorId)?.Nome,
+    //              characterEntity.FirstOrDefault(x => x.Id == item.AutorId)?.Nome,
     //              item.Capitulos,
     //              item.Versiculos)));
 

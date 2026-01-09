@@ -17,7 +17,7 @@ public static class MachineExplorer
         string environment = Environment.CurrentDirectory;
         // var z = typeof(EndOfStreamException ).Assembly.FullName;  
         // string replaceProject = environment.Replace("/bin/Debug/net7.0", ""); /* TestProject */
-        string replaceProject = environment.Replace("/Api", "/StorageContextJson");
+        string replaceProject = environment.Replace(@"\Api", @"\StorageContextJson");
         string fullPath = replaceProject + file;
 
         return fullPath;
