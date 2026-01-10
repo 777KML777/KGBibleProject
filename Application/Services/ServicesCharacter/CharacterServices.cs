@@ -38,13 +38,13 @@ public class CharacterServices : ICharacterServices
 
     public CharacterEntity MappingEntityDataToEntity(CharacterEntityData obj)
     {
-        CharacterEntity characterEntity = new CharacterEntity(obj.Nome, obj.Descricao, obj.Sexo);
+        CharacterEntity characterEntity = new CharacterEntity(obj.Nome, obj.Descricao, obj.Sexo, obj.Plano, obj.Tipo);
         return characterEntity;
     }
 
     public CharacterDto MappingEntityToDto(CharacterEntity obj)
     {
-        CharacterDto characterDto = new CharacterDto(obj.Nome, obj.Descricao, obj.Sexo);
+        CharacterDto characterDto = new CharacterDto(obj.Nome, obj.Descricao, obj.Sexo, obj.Plano, obj.Tipo);
         return characterDto;
     }
 
@@ -55,13 +55,15 @@ public class CharacterServices : ICharacterServices
         characterEntityData.Nome = obj.Nome;
         characterEntityData.Descricao = obj.Descricao;
         characterEntityData.Sexo = obj.Sexo;
+        characterEntityData.Plano = obj.Plano;
+        characterEntityData.Tipo = obj.Tipo;
 
         return characterEntityData;
     }
 
     public CharacterEntity MappingInputModelToEntity(CharacterInputModel obj)
     {
-        CharacterEntity characterEntity = new CharacterEntity(obj.Nome, obj.Descricao, obj.Sexo);
+        CharacterEntity characterEntity = new CharacterEntity(obj.Nome, obj.Descricao, obj.Sexo, obj.Plano, obj.Tipo);
         return characterEntity;
     }
 
@@ -70,7 +72,7 @@ public class CharacterServices : ICharacterServices
         List<CharacterEntity> characters = new List<CharacterEntity>();
         obj.ForEach(item =>
         {
-            var character = new CharacterEntity(item.Nome, item.Descricao, item.Sexo)
+            var character = new CharacterEntity(item.Nome, item.Descricao, item.Sexo, item.Plano, item.Tipo)
             {
                 Id = item.Id   // agora o Id vai junto!
             };
@@ -82,7 +84,7 @@ public class CharacterServices : ICharacterServices
     public List<CharacterDto> MappingListEntityToListDto(List<CharacterEntity> obj)
     {
         List<CharacterDto> characters = new List<CharacterDto>();
-        obj.ForEach(item => characters.Add(new CharacterDto(item.Nome, item.Descricao, item.Sexo)));
+        obj.ForEach(item => characters.Add(new CharacterDto(item.Nome, item.Descricao, item.Sexo, item.Plano, item.Tipo)));
         return characters;
     }
 
