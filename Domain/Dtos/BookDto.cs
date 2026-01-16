@@ -1,3 +1,6 @@
 namespace Domain.Dtos;
 
-public record class BookDto(string Nome, string Testamento, int AutorId , string Descricao, string NomeAutor);
+public record class BookDto(string Nome, string Testamento, string Descricao)
+{
+    CharacterDto Character {get; set;}
+};

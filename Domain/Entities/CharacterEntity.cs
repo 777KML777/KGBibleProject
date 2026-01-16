@@ -1,8 +1,11 @@
 using Domain.Base.Class;
 
-namespace Domain.Entities.Character;
+namespace Domain.Entities;
 
-public class CharacterEntity : Entity
+public class CharacterEntity
+(
+    
+) : Entity
 {
 
     public string Nome { get; private set; }
@@ -11,7 +14,7 @@ public class CharacterEntity : Entity
     public string Plano { get; set; }
     public string Tipo { get; set; }
 
-    public CharacterEntity(string nome, string descricao, string sexo, string plano, string tipo)
+    public CharacterEntity(string nome, string descricao, string sexo, string plano, string tipo) : this()
     {
         Nome = nome;
         Descricao = descricao;

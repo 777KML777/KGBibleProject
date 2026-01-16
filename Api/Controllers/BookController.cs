@@ -19,7 +19,19 @@ namespace Api.Controllers
             Ok(_app.Read());
 
         [HttpPost]
-        public IActionResult Create(BookInputModel obj) =>
-            Ok(_app.Create(obj));
+        public IActionResult Create(BookInputModel input) =>
+            Ok(_app.Create(input));
+
+        [HttpGet("{id}")]
+        public IActionResult GetById(int id) =>
+            Ok(_app.GetById(id));
+
+        [HttpPut("{id}")]
+        public IActionResult Update(int id, BookInputModel dto) =>
+            Ok(_app.Update(id, dto));
+
+        [HttpDelete("{id}")]
+        public IActionResult Delete(int id) =>
+            Ok(_app.Delete(id));
     }
 }

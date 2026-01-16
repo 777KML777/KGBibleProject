@@ -7,12 +7,14 @@ namespace Infra.Data.Base.Class;
 public static class GetterInjectionRepositoryExtensionMapper
 {
     internal static IBookRepositoryMapper? _bookRepositoryMapper;
+    internal static ICharacterRepositoryMapper? _characterRepositoryMapper;
     internal static IDoubtRepositoryMapper? _doubtRepositoryMapper;
     public static void Constructor(this WebApplication builder)
     {
         using var scope = builder.Services.CreateScope();
         {
             _bookRepositoryMapper = scope.ServiceProvider.GetRequiredService<IBookRepositoryMapper>();
+            _characterRepositoryMapper = scope.ServiceProvider.GetRequiredService<ICharacterRepositoryMapper>();
             _doubtRepositoryMapper = scope.ServiceProvider.GetRequiredService<IDoubtRepositoryMapper>();
         }
 

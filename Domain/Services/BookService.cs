@@ -1,4 +1,3 @@
-
 using Domain.Exceptions;
 using Domain.Extension;
 
@@ -6,7 +5,8 @@ namespace Domain.Services;
 
 public class BookService
 (
-    IBookRepository _repository
+    IBookRepository _repository, 
+    ICharacterRepository _characterRepository
 ) : IBookService
 {
     public BookDto Create(BookDto input)
@@ -21,7 +21,7 @@ public class BookService
     }
 
 
-    public bool Delete(int identifier)
+    public bool Delete(int id)
     {
         throw new NotImplementedException();
     }
@@ -46,11 +46,15 @@ public class BookService
 
     // }
 
-    public BookDto GetById(int identifier)
+    public BookDto GetById(int id)
     {
-        throw new NotImplementedException();
-    }
+        BookDto bookDto = _repository.GetById(id).ToDto();
 
+        CharacterDto characterDto = _characterRepository.GetById(bookDto.AutorId).ToDto();
+        
+
+        return bookDto;
+    }
 
     // public List<BookEntity> MappingListEntityDataToListEntity(List<BookEntityData> obj)
     // {
