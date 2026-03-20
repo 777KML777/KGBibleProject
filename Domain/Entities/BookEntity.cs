@@ -18,5 +18,4 @@ public class BookEntity
     public string Nome { get; set; }
     public string Testamento { get; set; }
     public string Descricao { get; set; }
-    public 
 }

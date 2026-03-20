@@ -1,8 +1,11 @@
 #region "CURRENT ASSEMBLY"
 global using Domain.Dtos;
+global using Domain.Enums;
 global using Domain.Entities;
 global using Domain.Interfaces;
+global using Domain.Base.Class;
 global using Domain.Base.Interfaces;
+global using Domain.Entities.Inherit;
 #endregion
 
 #region "ASSEMBLIES REFERENCES"
