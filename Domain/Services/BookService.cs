@@ -48,12 +48,16 @@ public class BookService
 
     public BookDto GetById(int id)
     {
-        BookDto bookDto = _repository.GetById(id).ToDto();
+        BookEntity entity = _repository.GetById(id);
 
-        CharacterDto characterDto = _characterRepository.GetById(bookDto.AutorId).ToDto();
-        
+        CharacterDto characterDto = _characterRepository.GetById(entity.Id).ToDto();
+        // CharacterEntity teria o bookId. 
+        // Criar um método que retorno os autores pelo Id do livro. 
 
-        return bookDto;
+        BookDto dto = entity.ToDto();
+        dto.SetCharacters([]);
+
+        return dto;
     }
 
     // public List<BookEntity> MappingListEntityDataToListEntity(List<BookEntityData> obj)

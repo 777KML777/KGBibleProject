@@ -8,13 +8,18 @@ public record class BookDto
     List<DateTime> UpdateAt,
     string Nome,
     string Testamento,
-    string Descricao,
-    CharacterDto Character
+    string Descricao
+
 )
-: TrackerDto 
+: TrackerDto
 (
     CreatedAt,
     CompletedAt,
     DeletedAt,
     UpdateAt
-);
+)
+{
+    public List<CharacterDto>? Character { get; set; } = null;
+    public void SetCharacters(List<CharacterDto> character) => 
+        Character = character;
+};
