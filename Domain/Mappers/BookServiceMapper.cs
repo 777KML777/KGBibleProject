@@ -5,7 +5,7 @@ namespace Domain.Mappers;
 public class BookServiceMapper : IBookServiceMapper
 {
     public BookEntity MappingDtoToEntity(BookDto dto) =>
-        new(dto.Nome, dto.Testamento, dto.AutorId, dto.Descricao); // TODO: Não passar Id relacional por parâmetro. 
+        new(dto.Nome, dto.Testamento, dto.Descricao); 
 
     public IEnumerable<BookDto> MappingEntityEnumerableToDtoEnumerable(IEnumerable<BookEntity> entities)
     {
@@ -15,6 +15,6 @@ public class BookServiceMapper : IBookServiceMapper
     }
 
     public BookDto MappingEntityToDto(BookEntity entity) =>
-        new(entity.Nome, entity.Testamento, entity.AutorId, entity.Descricao, entity.Nome); // TODO: Colocar o nome do autor.
+        new(entity.CreatedAt, entity.CompletedAt, entity.DeletedAt, entity.UpdateAt, entity.Name, entity.Testament, entity.Description); // TODO: Colocar o nome do autor.
 
 }

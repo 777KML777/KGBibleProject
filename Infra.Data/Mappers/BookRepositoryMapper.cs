@@ -15,7 +15,7 @@ public class BookRepositoryMapper : IBookRepositoryMapper
 
     public BookEntity MappingEntityDataToEntity(BookEntityData data)
     {
-        BookEntity bookEntity = new(data.Nome, data.Testamento, data.AutorId, data.Descricao/* , data.Capitulos, data.Versiculos */);
+        BookEntity bookEntity = new(data.Nome, data.Testamento, data.Descricao);
         return bookEntity;
     }
 
@@ -23,11 +23,11 @@ public class BookRepositoryMapper : IBookRepositoryMapper
     {
         BookEntityData bookEntityData = new()
         {
-            AutorId = entity.AutorId,
-            Descricao = entity.Descricao,
+            AutorId = entity.CharacterId,
+            Descricao = entity.Description,
             Id = entity.Id,
-            Nome = entity.Nome,
-            Testamento = entity.Testamento
+            Nome = entity.Name,
+            Testamento = entity.Testament
         };
 
         // TODO: Pegar na branch essas novas propriedades. 
