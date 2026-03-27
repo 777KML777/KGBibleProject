@@ -28,11 +28,15 @@ public static class NativeInjectorBootstrapper
         builder.AddScoped<IBookService, BookService>();
         // --- Services Mappers 
         builder.AddScoped<IBookServiceMapper, BookServiceMapper>();
+        builder.AddScoped<ICharacterServiceMapper, CharacterServiceMapper>();
 
         // Repositories 
         builder.AddScoped<IBookRepository, BookRepository>();
+        builder.AddScoped<ICharacterRepository, CharacterRepository>();
+
         // --- Repositories Mappers 
         builder.AddScoped<IBookRepositoryMapper, BookRepositoryMapper>();
+        builder.AddScoped<ICharacterRepositoryMapper, CharacterRepositoryMapper>();
 
         // Packages 
         builder.AddScoped<IGenericRepository, GenericRepository>();
