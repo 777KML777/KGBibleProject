@@ -1,5 +1,3 @@
-using Microsoft.AspNetCore.Http.HttpResults;
-
 namespace Api.Controllers;
 
 [ApiController]
@@ -25,7 +23,7 @@ public class BookController : ControllerBase
         Ok(_app.Create(input));
 
     [HttpGet("{id}")]
-    public async Task<IActionResult> GetById([FromRoute(Name = "Id")] GetByIdInput input) => Ok(await _app.GetById(input));
+    public async Task<IActionResult> GetById([FromRoute] GetByIdInput input) => Ok(await _app.GetById(input));
 
     [HttpPut("{id}")]
     public IActionResult Update(int id, BookInputModel dto) =>

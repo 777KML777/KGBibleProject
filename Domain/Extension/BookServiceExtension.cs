@@ -1,5 +1,3 @@
-using Domain.Base.Class;
-
 namespace Domain.Extension;
 
 public static class BookServiceExtension

@@ -2,6 +2,7 @@ namespace Domain.Dtos;
 
 public record class BookDto
 (
+    int Id,
     DateTime CreatedAt,
     DateTime? CompletedAt,
     DateTime? DeletedAt,
