@@ -24,8 +24,8 @@ public class BookController : ControllerBase
     public IActionResult Create(BookInputModel input) =>
         Ok(_app.Create(input));
 
-    [HttpGet, Route("get-by-id")]
-    public async Task<IActionResult> GetById([FromQuery] GetByIdInput input) => Ok(await _app.GetById(input));
+    [HttpGet("{id}")]
+    public async Task<IActionResult> GetById([FromRoute(Name = "Id")] GetByIdInput input) => Ok(await _app.GetById(input));
 
     [HttpPut("{id}")]
     public IActionResult Update(int id, BookInputModel dto) =>
