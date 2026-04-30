@@ -36,9 +36,11 @@ public class BookAppService
         return _service.Read().ToList();
     }
 
-    public BookDto GetById(int id)
+    public async Task<BookDto> GetById(GetByIdInput input)
     {
-        var bookDto = _service.GetById(id);
+        input.Validate("BOOKCONTROLLER"); 
+
+        var bookDto = _service.GetById(input.Id);
 
          return bookDto;
     }
