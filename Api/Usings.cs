@@ -1,15 +1,21 @@
+#region "CURRENT ASSEMBLY"
+#endregion
+
+#region "ASSEMBLIES REFERENCES"
+global using Application.Apps;
+global using Application.Inputs;
+global using Application.Interfaces;
 
 global using Domain.Dtos;
 global using Domain.Base.Class;
 
-// Assemblies 
-global using Application.Models;
-global using Application.Inputs;
-global using Application.Apps;
-global using Application.Interfaces;
-
 global using Infra.Data.Base.Class;
+#endregion
 
-
-// Packages 
+#region "PACKAGES"
+// Microsoft 
 global using Microsoft.AspNetCore.Mvc;
+#endregion
+
+#region ".NET SYSTEM"
+#endregion

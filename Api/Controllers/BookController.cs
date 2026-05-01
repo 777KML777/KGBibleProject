@@ -22,7 +22,7 @@ public class BookController : ControllerBase
     public IActionResult Create(BookInputModel input) =>
         Ok(_app.Create(input));
 
-    [HttpGet("{id}")]
+    [HttpGet("{Id}")]
     public async Task<IActionResult> GetById([FromRoute] GetByIdInput input) => Ok(await _app.GetById(input));
 
     [HttpPut("{id}")]
