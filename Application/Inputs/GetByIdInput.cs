@@ -1,5 +1,3 @@
-using Domain.Exceptions;
-
 namespace Application.Inputs;
 
 public record class GetByIdInput

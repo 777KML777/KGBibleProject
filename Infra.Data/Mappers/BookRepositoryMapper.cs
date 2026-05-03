@@ -1,7 +1,3 @@
-using Domain.Entities;
-using Infra.Data.Mappings;
-using Infra.Data.Extension;
-
 namespace Infra.Data.Mappers;
 
 public class BookRepositoryMapper : IBookRepositoryMapper

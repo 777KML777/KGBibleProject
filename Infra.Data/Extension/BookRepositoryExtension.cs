@@ -1,6 +1,3 @@
-using Domain.Entities;
-using Infra.Data.Mappings;
-
 namespace Infra.Data.Extension;
 
 public static class BookRepositoryExtension

@@ -1,6 +1,3 @@
-using Domain.Dtos;
-using Application.Inputs;
-
 namespace Application.Interfaces;
 
 public interface IBookAppService
