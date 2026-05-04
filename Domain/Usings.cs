@@ -14,7 +14,6 @@ global using Domain.Entities.Inherit;
 #endregion
 
 #region "PACKAGES"
-// Microsoft 
 global using Microsoft.AspNetCore.Builder;
 global using Microsoft.Extensions.DependencyInjection;
 #endregion

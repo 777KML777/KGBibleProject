@@ -1,14 +1,5 @@
 namespace Application.Apps;
 
-// public class BookAppService : IBookAppService
-// {
-//     private readonly IBookService _service;
-
-//     public BookAppService(IBookService service)
-//     {
-//         _service = service;
-//     }
-// }
 public class BookAppService
 (
     IBookService _service
@@ -16,14 +7,7 @@ public class BookAppService
 {
     public BookDto Create(BookInputModel input)
     {
-        // TODO: Validar aqui se o autor existe. Não existe mais mapeamento do InputModel para outra coisa. 
-        
-        // return _service.Create
-        // (
-        //     input.Book
-        // );
         var bookDto = _service.Create(input.Book);
-
         return bookDto;
     }
 
@@ -34,11 +18,8 @@ public class BookAppService
 
     public async Task<BookDto> GetById(GetByIdInput input)
     {
-        input.Validate("BOOKCONTROLLER"); 
-
-        var bookDto = _service.GetById(input.Id);
-
-         return bookDto;
+        input.Validate("BOOKCONTROLLER");
+        return _service.GetById(input.Id);
     }
 
     public BookDto Update(int id, BookInputModel dto)

@@ -1,7 +1,3 @@
-using Domain.Exceptions.Base;
-using Infra.Ioc;
-using Microsoft.AspNetCore.Diagnostics;
-
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
@@ -23,10 +19,8 @@ NativeInjectorBootstrapper.Register(builder.Services);
 var app = builder.Build();
 
 // *** Getters Injections *** // 
-
 GetterInjectionServiceExtensionMapper.Constructor(app);
 GetterInjectionRepositoryExtensionMapper.Constructor(app);
-
 // *** Getters Injections *** // 
 
 // Configure the HTTP request pipeline.
@@ -66,17 +60,12 @@ app.UseExceptionHandler(errorApp =>
             await context.Response.WriteAsJsonAsync(problem);
             return;
         }
-
         // fallback
         context.Response.StatusCode = StatusCodes.Status500InternalServerError;
     });
 });
 
-
 app.UseHttpsRedirection();
-
 app.UseAuthorization();
-
 app.MapControllers();
-
 app.Run();

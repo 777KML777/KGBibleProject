@@ -8,14 +8,17 @@ global using Application.Interfaces;
 
 global using Domain.Dtos;
 global using Domain.Base.Class;
+global using Domain.Exceptions.Base;
 
 global using Infra.Data.Base.Class;
+
+global using Infra.Ioc;
 #endregion
 
 #region "PACKAGES"
-// Microsoft 
 global using Microsoft.AspNetCore.Mvc;
 #endregion
 
 #region ".NET SYSTEM"
+global using Microsoft.AspNetCore.Diagnostics;
 #endregion
