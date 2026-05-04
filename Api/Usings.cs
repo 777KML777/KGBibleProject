@@ -5,6 +5,7 @@
 global using Application.Apps;
 global using Application.Inputs;
 global using Application.Interfaces;
+global using Application.Inputs.Commons;
 
 global using Domain.Dtos;
 global using Domain.Base.Class;

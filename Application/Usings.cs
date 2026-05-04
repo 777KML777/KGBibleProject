@@ -2,6 +2,7 @@
 global using Application.Inputs;
 global using Application.Interfaces;
 global using Application.Base.Class;
+global using Application.Inputs.Commons;
 #endregion
 
 #region "ASSEMBLIES REFERENCES"

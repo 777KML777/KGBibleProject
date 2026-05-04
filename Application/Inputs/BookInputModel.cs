@@ -1,5 +1,3 @@
-using Domain.Dtos;
-
 namespace Application.Inputs;
 
 public class BookInputModel

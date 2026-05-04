@@ -1,4 +1,4 @@
-namespace Application.Inputs;
+namespace Application.Inputs.Commons;
 
 public record class GetByIdInput
 (
