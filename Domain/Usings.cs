@@ -6,6 +6,7 @@ global using Domain.Extension;
 global using Domain.Interfaces;
 global using Domain.Base.Class;
 global using Domain.Exceptions;
+global using Domain.Exceptions.Base;
 global using Domain.Base.Interfaces;
 global using Domain.Entities.Inherit;
 #endregion
