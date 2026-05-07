@@ -12,7 +12,7 @@ public class BookRepositoryMapper : IBookRepositoryMapper
     public BookEntity MappingEntityDataToEntity(BookEntityData data)
     {
         BookEntity entity = new(data.Nome, data.Testamento, data.Descricao);
-        // TODO: Como tratar os includes nesse caso? 
+        entity.SetAuthorId(data.AutorId);
         entity.SetId(data.Id);
         return entity;
     }

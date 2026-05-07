@@ -17,6 +17,7 @@ public class BookEntity : Tracker
     #region "RELATIONAL PROPERTIES
     public int CharacterId { get; private set; }
     public CharacterEntity Author { get; private set; }
+    public void SetAuthorId(int authorId) => CharacterId = authorId;
     public void LinkAuthor(CharacterEntity author) => Author = author;
     #endregion
 
