@@ -2,7 +2,12 @@ namespace Domain.Entities;
 
 public class BookEntity : Tracker
 {
-    public BookEntity() { }
+    public BookEntity()
+    {
+        Name = string.Empty;
+        Testament = string.Empty;
+        Description = string.Empty;
+    }
     public BookEntity(string name, string testament, string description)
     {
         CreatedAt = DateTime.Now;
@@ -20,7 +25,6 @@ public class BookEntity : Tracker
     public void SetAuthorId(int authorId) => CharacterId = authorId;
     public void LinkAuthor(CharacterEntity author) => Author = author;
     #endregion
-
 
     // TODO: E se quisermos exibir todos os personagens do livro? Como iriamos diferenciar dos autores? 
 }

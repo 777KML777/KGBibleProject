@@ -10,7 +10,7 @@ public class BookService
 
         BookEntity entity = _repository.GetByName(input.Nome);
 
-        if (entity != null)
+        if (entity != null && entity.Name.Equals(input.Nome))
             throw new BookAlreadyExistDomainException(input.Nome);
 
         return _repository.Create(input.ToEntity()).ToDto(); ;
