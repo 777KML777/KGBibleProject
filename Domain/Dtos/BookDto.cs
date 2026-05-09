@@ -1,3 +1,5 @@
+using System.Text.Json.Serialization;
+
 namespace Domain.Dtos;
 
 public record class BookDto
@@ -9,7 +11,8 @@ public record class BookDto
     List<DateTime> UpdateAt,
     string Nome,
     string Testamento,
-    string Descricao
+    string Descricao 
+    // List<CharacterDto>?  Character = null
 
 )
 : TrackerDto
@@ -20,7 +23,9 @@ public record class BookDto
     UpdateAt
 )
 {
+
+    [JsonPropertyOrder(100)]
     public List<CharacterDto>? Character { get; set; } = null;
-    public void SetCharacters(List<CharacterDto> character) => 
+    public void SetCharacters(List<CharacterDto> character) =>
         Character = character;
 };
