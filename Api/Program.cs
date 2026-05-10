@@ -1,6 +1,4 @@
-using Domain.Exceptions.Base;
-using Infra.Ioc;
-using Microsoft.AspNetCore.Diagnostics;
+using Swashbuckle.AspNetCore.Filters;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -9,7 +7,13 @@ var builder = WebApplication.CreateBuilder(args);
 builder.Services.AddControllers();
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
 builder.Services.AddEndpointsApiExplorer();
-builder.Services.AddSwaggerGen();
+
+builder.Services.AddSwaggerExamplesFromAssemblyOf<Program>();
+
+builder.Services.AddSwaggerGen(options =>
+{
+    options.ExampleFilters();
+});
 
 builder.Services.AddCors(o => o.AddPolicy("MyPolicy", builder =>
 {
@@ -23,10 +27,8 @@ NativeInjectorBootstrapper.Register(builder.Services);
 var app = builder.Build();
 
 // *** Getters Injections *** // 
-
 GetterInjectionServiceExtensionMapper.Constructor(app);
 GetterInjectionRepositoryExtensionMapper.Constructor(app);
-
 // *** Getters Injections *** // 
 
 // Configure the HTTP request pipeline.
@@ -66,17 +68,12 @@ app.UseExceptionHandler(errorApp =>
             await context.Response.WriteAsJsonAsync(problem);
             return;
         }
-
         // fallback
         context.Response.StatusCode = StatusCodes.Status500InternalServerError;
     });
 });
 
-
 app.UseHttpsRedirection();
-
 app.UseAuthorization();
-
 app.MapControllers();
-
 app.Run();

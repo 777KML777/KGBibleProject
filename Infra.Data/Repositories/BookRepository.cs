@@ -1,7 +1,3 @@
-using Domain.Entities;
-using Infra.Data.Mappings;
-using Infra.Data.Extension;
-
 namespace Infra.Data.Repositories;
 
 public class BookRepository
@@ -17,6 +13,20 @@ public class BookRepository
     #region r4 TEMPORALLY
     public BookEntity Create(BookEntity entity) => Create(entity.ToEntityData()).ToEntity();
     public IEnumerable<BookEntity> Read() => Read<BookEntityData>().ToEntityEnumerable();
-    public BookEntity GetById(int id) => GetById<BookEntityData>(id).ToEntity();
+    public BookEntity GetById(int id)
+    {
+        BookEntity book = GetById<BookEntityData>(id).ToEntity();
+
+        // TODO: Remover futuramente ou implementar include. 
+        // INCLUDES
+        if (book != null)
+        {
+            // One To One - Exemplo
+            var author = GetById<CharacterEntityData>(book.CharacterId).ToEntity();
+            book.LinkAuthor(author); //TODO: Poderia ser um construtor secundário.
+            
+        }
+        return book ?? new(); // TODO: Poderia retornar nulo. E o serviço quem trataria. 
+    }
     #endregion 
 }

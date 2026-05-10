@@ -1,5 +1,3 @@
-using Domain.Base.Class;
-
 namespace Domain.Entities;
 
 public class CharacterEntity

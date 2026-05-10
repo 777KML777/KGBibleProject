@@ -2,14 +2,14 @@ namespace Domain.Dtos;
 
 public record class BookDto
 (
+    int Id,
     DateTime CreatedAt,
     DateTime? CompletedAt,
     DateTime? DeletedAt,
     List<DateTime> UpdateAt,
     string Nome,
     string Testamento,
-    string Descricao
-
+    string Descricao 
 )
 : TrackerDto
 (
@@ -19,7 +19,9 @@ public record class BookDto
     UpdateAt
 )
 {
+
+    [JsonPropertyOrder(100)]
     public List<CharacterDto>? Character { get; set; } = null;
-    public void SetCharacters(List<CharacterDto> character) => 
+    public void SetCharacters(List<CharacterDto> character) =>
         Character = character;
 };

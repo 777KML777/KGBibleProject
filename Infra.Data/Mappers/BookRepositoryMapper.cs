@@ -1,7 +1,3 @@
-using Domain.Entities;
-using Infra.Data.Mappings;
-using Infra.Data.Extension;
-
 namespace Infra.Data.Mappers;
 
 public class BookRepositoryMapper : IBookRepositoryMapper
@@ -15,8 +11,10 @@ public class BookRepositoryMapper : IBookRepositoryMapper
 
     public BookEntity MappingEntityDataToEntity(BookEntityData data)
     {
-        BookEntity bookEntity = new(data.Nome, data.Testamento, data.Descricao);
-        return bookEntity;
+        BookEntity entity = new(data.Nome, data.Testamento, data.Descricao);
+        entity.SetAuthorId(data.AutorId);
+        entity.SetId(data.Id);
+        return entity;
     }
 
     public BookEntityData MappingEntityToEntityData(BookEntity entity)
@@ -31,7 +29,6 @@ public class BookRepositoryMapper : IBookRepositoryMapper
         };
 
         // TODO: Pegar na branch essas novas propriedades. 
-
         // bookEntityData.Capitulos = entity.Capitulos;
         // bookEntityData.Versiculos = entity.Versiculos;
 

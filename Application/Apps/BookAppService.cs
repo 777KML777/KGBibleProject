@@ -1,46 +1,21 @@
-using Domain.Dtos;
-using Domain.Interfaces;
-using Application.Inputs;
-
 namespace Application.Apps;
 
-// public class BookAppService : IBookAppService
-// {
-//     private readonly IBookService _service;
-
-//     public BookAppService(IBookService service)
-//     {
-//         _service = service;
-//     }
-// }
 public class BookAppService
 (
     IBookService _service
 ) : IBookAppService
 {
+
+    #region "CRUD Operations"
     public BookDto Create(BookInputModel input)
     {
-        // TODO: Validar aqui se o autor existe. Não existe mais mapeamento do InputModel para outra coisa. 
-        
-        // return _service.Create
-        // (
-        //     input.Book
-        // );
-        var bookDto = _service.Create(input.Book);
-
-        return bookDto;
+        input.Validate("BOOKCONTROLLER");
+        return _service.Create(input.Book);
     }
 
     public List<BookDto> Read()
     {
         return _service.Read().ToList();
-    }
-
-    public BookDto GetById(int id)
-    {
-        var bookDto = _service.GetById(id);
-
-         return bookDto;
     }
 
     public BookDto Update(int id, BookInputModel dto)
@@ -52,4 +27,13 @@ public class BookAppService
     {
         throw new NotImplementedException();
     }
+    #endregion
+
+    #region "RCO - Region Commom Operation"
+    public async Task<BookDto> GetById(GetByIdInput input)
+    {
+        input.Validate("BOOKCONTROLLER");
+        return _service.GetById(input.Id);
+    }
+    #endregion
 }
