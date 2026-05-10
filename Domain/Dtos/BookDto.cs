@@ -1,5 +1,3 @@
-using System.Text.Json.Serialization;
-
 namespace Domain.Dtos;
 
 public record class BookDto
@@ -12,8 +10,6 @@ public record class BookDto
     string Nome,
     string Testamento,
     string Descricao 
-    // List<CharacterDto>?  Character = null
-
 )
 : TrackerDto
 (

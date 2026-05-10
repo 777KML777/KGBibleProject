@@ -9,7 +9,7 @@ public class BookAppService
     #region "CRUD Operations"
     public BookDto Create(BookInputModel input)
     {
-        // input.Validate("BOOKCONTROLLER");
+        input.Validate("BOOKCONTROLLER");
         return _service.Create(input.Book);
     }
 

@@ -20,4 +20,5 @@ global using Microsoft.Extensions.DependencyInjection;
 #endregion
 
 #region ".NET SYSTEM"
+global using System.Text.Json.Serialization;
 #endregion

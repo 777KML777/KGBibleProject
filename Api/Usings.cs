@@ -1,4 +1,5 @@
 #region "CURRENT ASSEMBLY"
+global using Api.Documentation;
 #endregion
 
 #region "ASSEMBLIES REFERENCES"
@@ -18,6 +19,8 @@ global using Infra.Ioc;
 
 #region "PACKAGES"
 global using Microsoft.AspNetCore.Mvc;
+
+global using Swashbuckle.AspNetCore.Filters;
 #endregion
 
 #region ".NET SYSTEM"

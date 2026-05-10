@@ -1,6 +1,3 @@
-using Api.Documentation;
-using Swashbuckle.AspNetCore.Filters;
-
 namespace Api.Controllers;
 
 [ApiController]
@@ -15,7 +12,8 @@ public class BookController
     public IActionResult Get() => Ok(_app.Read());
 
     [HttpPost]
-    [SwaggerRequestExample(typeof(BookInputModel), typeof(BookDtoExample))] public IActionResult Create(BookInputModel input) => Ok(_app.Create(input));
+    [SwaggerRequestExample(typeof(BookInputModel), typeof(BookDtoExample))]
+    public IActionResult Create(BookInputModel input) => Ok(_app.Create(input));
 
     [HttpGet("{Id}")]
     public async Task<IActionResult> GetById([FromRoute] GetByIdInput input) => Ok(await _app.GetById(input));
