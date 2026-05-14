@@ -10,6 +10,6 @@ public interface IBookAppService
     #endregion
 
     #region "RCO - Region Commom Operation"
-    public Task<BookDto> GetById(GetByIdInput input);
+    public Task<BookInputModel> GetById(GetByIdInput input);
     #endregion
 }

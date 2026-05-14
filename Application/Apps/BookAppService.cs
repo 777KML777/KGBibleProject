@@ -20,7 +20,8 @@ public class BookAppService
 
     public BookDto Update(int id, BookInputModel dto)
     {
-        throw new NotImplementedException();
+        dto.Validate("BOOKCONTROLLER");
+        return _service.Update(dto.Book);
     }
 
     public bool Delete(int id)
@@ -30,10 +31,10 @@ public class BookAppService
     #endregion
 
     #region "RCO - Region Commom Operation"
-    public async Task<BookDto> GetById(GetByIdInput input)
+    public async Task<BookInputModel> GetById(GetByIdInput input)
     {
         input.Validate("BOOKCONTROLLER");
-        return _service.GetById(input.Id);
+        return new BookInputModel(_service.GetById(input.Id), ["Antigo","Novo"]);
     }
     #endregion
 }
