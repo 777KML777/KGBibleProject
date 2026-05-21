@@ -11,12 +11,12 @@ public class BookController
     [HttpGet]
     public IActionResult Get() => Ok(_app.Read());
 
+    [HttpGet("{Id}")]
+    public async Task<IActionResult> GetById([FromRoute] GetByIdInput input) => Ok(await _app.GetById(input));
+
     [HttpPost]
     [SwaggerRequestExample(typeof(BookInputModel), typeof(BookDtoExample))]
     public IActionResult Create(BookInputModel input) => Ok(_app.Create(input));
-
-    [HttpGet("{Id}")]
-    public async Task<IActionResult> GetById([FromRoute] GetByIdInput input) => Ok(await _app.GetById(input));
 
     [HttpPut("{id}")]
     public IActionResult Update(int id, BookInputModel dto) => Ok(_app.Update(id, dto));
