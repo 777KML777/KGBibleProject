@@ -30,10 +30,10 @@ public class BookAppService
     #endregion
 
     #region "RCO - Region Commom Operation"
-    public async Task<BookDto> GetById(GetByIdInput input)
+    public async Task<BookInputModel> GetById(GetByIdInput input)
     {
         input.Validate("BOOKCONTROLLER");
-        return _service.GetById(input.Id);
+        return  new (_service.GetById(input.Id));
     }
     #endregion
 }
