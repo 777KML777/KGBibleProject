@@ -4,11 +4,11 @@ public class BookServiceMapper : IBookServiceMapper
 {
     public BookEntity MappingDtoToEntity(BookDto dto)
     {
-        BookEntity entity = new(dto.Nome, dto.Testamento, dto.Descricao); 
+        BookEntity entity = new(dto.Nome, dto.Testamento, dto.Descricao);
         entity.SetId(dto.Id);
         return entity;
     }
-        
+
 
     public IEnumerable<BookDto> MappingEntityEnumerableToDtoEnumerable(IEnumerable<BookEntity> entities)
     {
@@ -17,7 +17,6 @@ public class BookServiceMapper : IBookServiceMapper
         return dtos;
     }
 
-    public BookDto MappingEntityToDto(BookEntity entity) =>
-        new(entity.Id, entity.CreatedAt, entity.CompletedAt, entity.DeletedAt, entity.UpdateAt, entity.Name, entity.Testament, entity.Description); // TODO: Colocar o nome do autor.
+    public BookDto MappingEntityToDto(BookEntity entity) => new(entity);
 
 }

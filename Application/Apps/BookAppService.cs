@@ -18,7 +18,7 @@ public class BookAppService
         return _service.Read().ToList();
     }
 
-    public BookDto Update(int id, BookInputModel dto)
+    public BookDto Update(BookInputModel dto)
     {
         throw new NotImplementedException();
     }

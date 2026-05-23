@@ -15,6 +15,11 @@ public class BookEntity : Tracker
         Description = description;
         Testament = testament;
     }
+
+    internal BookEntity(BookDto dto)
+    {
+        
+    }
     public string Name { get; private set; }
     public string Testament { get; private set; }
     public string Description { get; private set; }

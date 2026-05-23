@@ -13,6 +13,7 @@ builder.Services.AddSwaggerExamplesFromAssemblyOf<Program>();
 builder.Services.AddSwaggerGen(options =>
 {
     options.ExampleFilters();
+    // options.OrderActionsBy(api => api.GroupName);
 });
 
 builder.Services.AddCors(o => o.AddPolicy("MyPolicy", builder =>

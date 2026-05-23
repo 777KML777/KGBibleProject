@@ -17,7 +17,8 @@ public class BookDtoExample : IExamplesProvider<BookInputModel>
                 [],
                 "",
                 "",
-                ""
+                "",
+                0
             )
             { Character = null }
         );

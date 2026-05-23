@@ -6,10 +6,11 @@ public record class BookDto
     DateTime CreatedAt,
     DateTime? CompletedAt,
     DateTime? DeletedAt,
-    List<DateTime> UpdateAt,
+    List<DateTime>? UpdateAt,
     string Nome,
     string Testamento,
-    string Descricao 
+    string Descricao,
+    int QuantidadeDeCapitulosEstimados
 )
 : TrackerDto
 (
@@ -24,4 +25,20 @@ public record class BookDto
     public List<CharacterDto>? Character { get; set; } = null;
     public void SetCharacters(List<CharacterDto> character) =>
         Character = character;
-};
+
+    internal BookDto(BookEntity entity) : this
+    (
+        entity.Id,
+        entity.CreatedAt,
+        entity.CompletedAt,
+        entity.DeletedAt,
+        entity.UpdateAt,
+        entity.Name,
+        entity.Testament,
+        entity.Description,
+        0 /* entity.QuantidadeDeCapitulosEstimados */
+    )
+    {
+
+    }
+}
