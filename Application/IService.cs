@@ -2,7 +2,7 @@ namespace Application;
 
 public interface IService<TInputModel, TDto, TEntity, TEntityData>
 {
-    TDto MappingEntityToDto(TEntity obj);
+    TDto EntityToDto(TEntity obj);
     TEntity MappingInputModelToEntity(TInputModel obj);
 
     /// <summary>

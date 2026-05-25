@@ -2,7 +2,7 @@ namespace Domain.Mappers;
 
 public class BookServiceMapper : IBookServiceMapper
 {
-    public BookEntity MappingDtoToEntity(BookDto dto)
+    public BookEntity DtoToEntity(BookDto dto)
     {
         BookEntity entity = new(dto.Nome, dto.Testamento, dto.Descricao);
         entity.SetId(dto.Id);
@@ -10,13 +10,13 @@ public class BookServiceMapper : IBookServiceMapper
     }
 
 
-    public IEnumerable<BookDto> MappingEntityEnumerableToDtoEnumerable(IEnumerable<BookEntity> entities)
+    public IEnumerable<BookDto> EntityToDto(IEnumerable<BookEntity> entities)
     {
         ICollection<BookDto> dtos = [];
         entities.ToList().ForEach(item => dtos.Add(item.ToDto()));
         return dtos;
     }
 
-    public BookDto MappingEntityToDto(BookEntity entity) => new(entity);
+    public BookDto EntityToDto(BookEntity entity) => new(entity);
 
 }

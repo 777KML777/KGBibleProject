@@ -3,12 +3,12 @@ namespace Domain.Base.Interfaces;
 public interface IServiceMapper<TDto, TEntity>
 {
     #region RMO - Region Mapper Objects
-    public TEntity MappingDtoToEntity(TDto dto);
-    public TDto MappingEntityToDto(TEntity entity);
+    public TEntity DtoToEntity(TDto dto);
+    public TDto EntityToDto(TEntity entity);
 
     #endregion
 
     #region RMC - Region Mapper Collection
-    public IEnumerable<TDto> MappingEntityEnumerableToDtoEnumerable(IEnumerable<TEntity> entities);
+    public IEnumerable<TDto> EntityToDto(IEnumerable<TEntity> entities);
     #endregion
 }

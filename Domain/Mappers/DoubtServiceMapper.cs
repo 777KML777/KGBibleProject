@@ -3,17 +3,17 @@ namespace Domain.Mappers;
 
 public class DoubtServiceMapper : IDoubtServiceMapper
 {
-    public DoubtEntity MappingDtoToEntity(DoubtDto dto)
+    public DoubtEntity DtoToEntity(DoubtDto dto)
     {
         throw new NotImplementedException();
     }
 
-    public IEnumerable<DoubtDto> MappingEntityEnumerableToDtoEnumerable(IEnumerable<DoubtEntity> entities)
+    public IEnumerable<DoubtDto> EntityToDto(IEnumerable<DoubtEntity> entities)
     {
         throw new NotImplementedException();
     }
 
-    public DoubtDto MappingEntityToDto(DoubtEntity entity)
+    public DoubtDto EntityToDto(DoubtEntity entity)
     {
         throw new NotImplementedException();
     }

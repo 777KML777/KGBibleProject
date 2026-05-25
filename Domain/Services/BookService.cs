@@ -38,7 +38,7 @@ public class BookService
     public IEnumerable<BookDto> Read()
     {
         // TODO: Ter a quantidade de autores que escreveram o livro. 
-        return [.. _repository.Read().ToDtoEnumerable()];
+        return [.. _repository.Read().ToDto()];
     }
     public BookDto Update(BookDto dto)
     {

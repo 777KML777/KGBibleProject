@@ -30,7 +30,7 @@ public class CharacterService
 
     //     CharacterEntityData characterEntityData = _repository.GetById<CharacterEntityData>(bookEntity.AutorId);
     //     CharacterEntity characterEntity = characterServices.MappingEntityDataToEntity(characterEntityData);
-    //     CharacterDto characterDto = characterServices.MappingEntityToDto(characterEntity);
+    //     CharacterDto characterDto = characterServices.EntityToDto(characterEntity);
 
     //     //Buscando objetos concatenados do banco
     //     CharacterDto characterDto = new CharacterDto(bookEntity.Nome, bookEntity.Testamento, bookEntity.AutorId, bookEntity.Descricao, characterDto.Nome,

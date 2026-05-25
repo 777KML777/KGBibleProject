@@ -6,11 +6,11 @@ public static class BookServiceExtension
         GetterInjectionServiceExtensionMapper._bookServiceMapper ?? throw new("DI - ServiceBookMapper Failed.");
 
     public static BookDto ToDto(this BookEntity entity) =>
-        _mapper.MappingEntityToDto(entity);
+        _mapper.EntityToDto(entity);
 
     public static BookEntity ToEntity(this BookDto dto) =>
-        _mapper.MappingDtoToEntity(dto);
+        _mapper.DtoToEntity(dto);
 
-    public static IEnumerable<BookDto> ToDtoEnumerable(this IEnumerable<BookEntity> entities) => 
-        _mapper.MappingEntityEnumerableToDtoEnumerable(entities);
+    public static IEnumerable<BookDto> ToDto(this IEnumerable<BookEntity> entities) => 
+        _mapper.EntityToDto(entities);
 }
