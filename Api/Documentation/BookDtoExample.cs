@@ -1,5 +1,3 @@
-using Swashbuckle.AspNetCore.Filters;
-
 namespace Api.Documentation;
 
 public class BookDtoExample : IExamplesProvider<BookInputModel>
