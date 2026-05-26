@@ -6,20 +6,20 @@ namespace Infra.Data.Mappers;
 
 public class CharacterRepositoryMapper : ICharacterRepositoryMapper
 {
-    public IEnumerable<CharacterEntity> MappingEntityDataEnumerableToEntityEnumerable(IEnumerable<CharacterEntityData> datas)
+    public IEnumerable<CharacterEntity> EntityDataToEntity(IEnumerable<CharacterEntityData> datas)
     {
         ICollection<CharacterEntity> entities = [];
         datas.ToList().ForEach(item => entities.Add(item.ToEntity()));
         return entities;
     }
 
-    public CharacterEntity MappingEntityDataToEntity(CharacterEntityData data)
+    public CharacterEntity EntityDataToEntity(CharacterEntityData data)
     {
         CharacterEntity CharacterEntity = new(data.Nome, data.Descricao, data.Sexo, data.Plano, data.Tipo);
         return CharacterEntity;
     }
 
-    public CharacterEntityData MappingEntityToEntityData(CharacterEntity entity)
+    public CharacterEntityData EntityToEntityData(CharacterEntity entity)
     {
         CharacterEntityData CharacterEntityData = new()
         {

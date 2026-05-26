@@ -10,7 +10,7 @@ public interface IService<TInputModel, TDto, TEntity, TEntityData>
     /// </summary>
     /// <param name="obj">Entidade do domínio</param>
     /// <returns>Objeto do repositório TEntityData</returns>
-    TEntityData MappingEntityToEntityData(TEntity obj);
+    TEntityData EntityToEntityData(TEntity obj);
 
 
     /// <summary>
@@ -18,7 +18,7 @@ public interface IService<TInputModel, TDto, TEntity, TEntityData>
     /// </summary>
     /// <param name="obj">Objeto do repositório JSON</param>
     /// <returns>Entidade de domínio TEntity</returns>
-    TEntity MappingEntityDataToEntity(TEntityData obj); 
+    TEntity EntityDataToEntity(TEntityData obj); 
 
     /// <summary>
     /// Usado para operações de inserção. (Create, Update, Patch...)

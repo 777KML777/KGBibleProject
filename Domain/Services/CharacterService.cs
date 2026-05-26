@@ -23,13 +23,13 @@ public class CharacterService
     // public CharacterDto GetById(int id, bool include = false)
     // {
     //     CharacterEntityData bookEntityData = _repository.GetById<CharacterEntityData>(id);
-    //     CharacterEntity bookEntity = MappingEntityDataToEntity(bookEntityData);
+    //     CharacterEntity bookEntity = EntityDataToEntity(bookEntityData);
 
     //     //Buscando objeto pessoa do banco
     //     CharacterServices characterServices = new CharacterServices();
 
     //     CharacterEntityData characterEntityData = _repository.GetById<CharacterEntityData>(bookEntity.AutorId);
-    //     CharacterEntity characterEntity = characterServices.MappingEntityDataToEntity(characterEntityData);
+    //     CharacterEntity characterEntity = characterServices.EntityDataToEntity(characterEntityData);
     //     CharacterDto characterDto = characterServices.EntityToDto(characterEntity);
 
     //     //Buscando objetos concatenados do banco
@@ -92,7 +92,7 @@ public class CharacterService
     //         throw new Exception("Nenhum produto encontrado");
     //     }
     //     CharacterEntity bookEntity = MappingInputModelToEntity(obj);
-    //     CharacterEntityData bookEntityData = MappingEntityToEntityData(bookEntity);
+    //     CharacterEntityData bookEntityData = EntityToEntityData(bookEntity);
     //     bookEntityData.Id = id;
 
     //     _repository.Update<CharacterEntityData>(bookEntityData);

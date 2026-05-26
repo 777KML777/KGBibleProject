@@ -6,17 +6,17 @@ namespace Infra.Data.Mappers;
 
 public class DoubtRepositoryMapper : IDoubtRepositoryMapper
 {
-    IEnumerable<DoubtEntity> IRepositoryMapper<DoubtEntity, DoubtEntityData>.MappingEntityDataEnumerableToEntityEnumerable(IEnumerable<DoubtEntityData> datas)
+    IEnumerable<DoubtEntity> IRepositoryMapper<DoubtEntity, DoubtEntityData>.EntityDataToEntity(IEnumerable<DoubtEntityData> datas)
     {
         throw new NotImplementedException();
     }
 
-    DoubtEntity IRepositoryMapper<DoubtEntity, DoubtEntityData>.MappingEntityDataToEntity(DoubtEntityData data)
+    DoubtEntity IRepositoryMapper<DoubtEntity, DoubtEntityData>.EntityDataToEntity(DoubtEntityData data)
     {
         throw new NotImplementedException();
     }
 
-    DoubtEntityData IRepositoryMapper<DoubtEntity, DoubtEntityData>.MappingEntityToEntityData(DoubtEntity entity)
+    DoubtEntityData IRepositoryMapper<DoubtEntity, DoubtEntityData>.EntityToEntityData(DoubtEntity entity)
     {
         throw new NotImplementedException();
     }

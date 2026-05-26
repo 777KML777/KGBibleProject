@@ -8,17 +8,17 @@ public interface IRepositoryMapper<TEntity, TEntityData>
     /// </summary>
     /// <param name="entity">Entidade de domínio auto validada.</param>
     /// <returns>Dado a ser registrado no repositório.</returns>
-    internal TEntityData MappingEntityToEntityData(TEntity entity);
+    internal TEntityData EntityToEntityData(TEntity entity);
 
     /// <summary>
     /// (ID: 3-2) - (Operação: RO1 Read || GetById) - (Flow <-).
     /// </summary>
     /// <param name="data">Dado fornecido do repositório JSON.</param>
     /// <returns>Entidade de domíno para auto validação.</returns>
-    internal TEntity MappingEntityDataToEntity(TEntityData data);
+    internal TEntity EntityDataToEntity(TEntityData data);
     #endregion
 
     #region RMC - Region Mapper Collection
-    internal IEnumerable<TEntity> MappingEntityDataEnumerableToEntityEnumerable(IEnumerable<TEntityData> datas);
+    internal IEnumerable<TEntity> EntityDataToEntity(IEnumerable<TEntityData> datas);
     #endregion
 }

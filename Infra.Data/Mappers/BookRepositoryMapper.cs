@@ -2,14 +2,14 @@ namespace Infra.Data.Mappers;
 
 public class BookRepositoryMapper : IBookRepositoryMapper
 {
-    public IEnumerable<BookEntity> MappingEntityDataEnumerableToEntityEnumerable(IEnumerable<BookEntityData> datas)
+    public IEnumerable<BookEntity> EntityDataToEntity(IEnumerable<BookEntityData> datas)
     {
         ICollection<BookEntity> entities = [];
         datas.ToList().ForEach(item => entities.Add(item.ToEntity()));
         return entities;
     }
 
-    public BookEntity MappingEntityDataToEntity(BookEntityData data)
+    public BookEntity EntityDataToEntity(BookEntityData data)
     {
         BookEntity entity = new(data.Nome, data.Testamento, data.Descricao);
         entity.SetAuthorId(data.AutorId);
@@ -17,7 +17,7 @@ public class BookRepositoryMapper : IBookRepositoryMapper
         return entity;
     }
 
-    public BookEntityData MappingEntityToEntityData(BookEntity entity)
+    public BookEntityData EntityToEntityData(BookEntity entity)
     {
         BookEntityData bookEntityData = new()
         {

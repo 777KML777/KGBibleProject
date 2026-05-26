@@ -6,12 +6,12 @@ public static class BookRepositoryExtension
         GetterInjectionRepositoryExtensionMapper._bookRepositoryMapper ?? throw new("DI - RepositoryBookMapper Failed.");
 
     internal static BookEntityData ToEntityData(this BookEntity entity) =>
-        _mapper.MappingEntityToEntityData(entity);
+        _mapper.EntityToEntityData(entity);
     internal static BookEntity ToEntity(this BookEntityData data) =>
-        _mapper.MappingEntityDataToEntity(data);
+        _mapper.EntityDataToEntity(data);
 
-    internal static IEnumerable<BookEntity> ToEntityEnumerable(this IEnumerable<BookEntityData> datas) =>
-        _mapper.MappingEntityDataEnumerableToEntityEnumerable(datas);
+    internal static IEnumerable<BookEntity> ToEntity(this IEnumerable<BookEntityData> datas) =>
+        _mapper.EntityDataToEntity(datas);
 
 
 
