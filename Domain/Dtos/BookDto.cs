@@ -39,6 +39,6 @@ public record class BookDto
         0 /* entity.QuantidadeDeCapitulosEstimados */
     )
     {
-
+        // if(entity.Autores is not null)
     }
 }
