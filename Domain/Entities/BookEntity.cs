@@ -16,9 +16,15 @@ public class BookEntity : Tracker
         Testament = testament;
     }
 
-    internal BookEntity(BookDto dto)
+    internal BookEntity(BookDto dto) : this 
+    (
+        dto.Nome, 
+        dto.Testamento, 
+        dto.Descricao
+    )
     {
-        
+        Id = dto.Id;
+        // ValidarAutor();
     }
     public string Name { get; private set; }
     public string Testament { get; private set; }
