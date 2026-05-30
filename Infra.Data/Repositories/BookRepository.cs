@@ -11,7 +11,10 @@ public class BookRepository
     #endregion 
 
     #region r4 TEMPORALLY
-    public BookEntity Create(BookEntity entity) => Create(entity.ToEntityData()).ToEntity();
+    public BookEntity Create(BookEntity entity) => 
+        Create(entity.ToEntityData()).ToEntity();
+    public BookEntity Update(BookEntity entity) => 
+        Update(entity.ToEntityData()).ToEntity();
     public IEnumerable<BookEntity> Read() => Read<BookEntityData>().ToEntity();
     public BookEntity GetById(int id)
     {

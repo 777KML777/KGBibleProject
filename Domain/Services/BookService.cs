@@ -42,6 +42,8 @@ public class BookService
     }
     public BookDto Update(BookDto dto)
     {
-        throw new NotImplementedException();
+        BookEntity entity = _repository.GetById(dto.Id);
+
+        return _repository.Update(entity).ToDto();
     }
 }
