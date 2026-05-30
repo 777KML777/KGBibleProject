@@ -2,6 +2,16 @@ namespace Domain.Entities;
 
 public class BookEntity : Tracker
 {
+    public string Name { get; private set; }
+    public string Testament { get; private set; }
+    public string Description { get; private set; }
+
+    #region "RELATIONAL PROPERTIES
+    public int CharacterId { get; private set; }
+    public CharacterEntity Author { get; private set; }
+    public void SetAuthorId(int authorId) => CharacterId = authorId;
+    public void LinkAuthor(CharacterEntity author) => Author = author;
+    #endregion
     public BookEntity()
     {
         Name = string.Empty;
@@ -16,26 +26,27 @@ public class BookEntity : Tracker
         Testament = testament;
     }
 
-    internal BookEntity(BookDto dto) : this 
+    internal BookEntity(BookDto dto) : this
     (
-        dto.Nome, 
-        dto.Testamento, 
+        dto.Nome,
+        dto.Testamento,
         dto.Descricao
     )
     {
         Id = dto.Id;
         // ValidarAutor();
     }
-    public string Name { get; private set; }
-    public string Testament { get; private set; }
-    public string Description { get; private set; }
 
-    #region "RELATIONAL PROPERTIES
-    public int CharacterId { get; private set; }
-    public CharacterEntity Author { get; private set; }
-    public void SetAuthorId(int authorId) => CharacterId = authorId;
-    public void LinkAuthor(CharacterEntity author) => Author = author;
-    #endregion
+    public void Alterar(BookEntity entity)
+    {
+        Id = entity.Id;
 
+        Name = entity.Name;
+        Testament = entity.Testament;
+        Description = entity.Description;
+
+        // ValidarAutor();
+
+    }
     // TODO: E se quisermos exibir todos os personagens do livro? Como iriamos diferenciar dos autores? 
 }
