@@ -43,6 +43,7 @@ public class BookService
     public BookDto Update(BookDto dto)
     {
         BookEntity entity = _repository.GetById(dto.Id);
+        entity.Alterar(dto.ToEntity());
 
         return _repository.Update(entity).ToDto();
     }

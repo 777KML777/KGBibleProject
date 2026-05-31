@@ -2,7 +2,7 @@ namespace Domain.Mappers;
 
 public class BookServiceMapper : IBookServiceMapper
 {
-    public BookEntity DtoToEntity(BookDto dto) => new(dto.Nome, dto.Testamento, dto.Descricao);
+    public BookEntity DtoToEntity(BookDto dto) => new(dto);
 
 
     public IEnumerable<BookDto> EntityToDto(IEnumerable<BookEntity> entities) => 
